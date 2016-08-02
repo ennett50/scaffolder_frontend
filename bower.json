@@ -1,0 +1,17 @@
+{
+  "name": "bitrix_scaffolder",
+  "description": "",
+  "main": "",
+  "authors": [
+    "ennet <ennet@mail.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
