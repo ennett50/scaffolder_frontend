@@ -1,0 +1,17 @@
+-for(var i = 0 ; i < scripts.length; i++)
+    <script src="#{ STATIC_DIR }#{scripts[i]}"></script>
+
+// [ START ] Скрипты библиотек
+-for(var i = 0 ; i < scripts.length; i++)
+    <script src="#{ STATIC_DIR }#{scripts[i]}"></script>
+// [END] Скрипты библиотек
+
+
+// [ START ] Скрипты проекта
+<script src="#{ STATIC_DIR }scripts/"></script>
+// [END] Скрипты проекта
+
+// [START] IE8 polyfills
+|<!--[if lt IE 9]><script src="#{ LIBS_DIR }html5shiv/dist/html5shiv.min.js"></script><![endif]-->
+|<!--[if lt IE 9]><script src="#{ LIBS_DIR }css3-mediaqueries-js/css3-mediaqueries.js"></script><![endif]-->
+// [END] IE8 polyfills

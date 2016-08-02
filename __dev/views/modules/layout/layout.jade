@@ -1,0 +1,14 @@
+block vars
+include ../__config/variables
+include ../__config/mixins
+
+doctype html
+html(lang="ru").no-js
+    include head
+
+    body
+        include ../header/header
+        h1 Hello World
+        block block-content
+
+        include ../footer/footer

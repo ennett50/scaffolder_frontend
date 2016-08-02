@@ -1,2 +1,5 @@
-___gulp/node_modules
 .idea/
+node_modules/
+web/
+npm-debug.log
+__dev/scripts/libs

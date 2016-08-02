@@ -1,0 +1,9 @@
+extends ./modules/layout/layout
+block vars
+    -var currentPageTitle = "Главная страница"
+block title
+    title= currentPageTitle
+
+block block-content
+    h2 Заголовок второго уровня
+    -console.log(getData('header.json'));
