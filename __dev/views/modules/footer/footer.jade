@@ -1,17 +1,19 @@
--for(var i = 0 ; i < scripts.length; i++)
-    <script src="#{ STATIC_DIR }#{scripts[i]}"></script>
-
 // [ START ] Скрипты библиотек
--for(var i = 0 ; i < scripts.length; i++)
-    <script src="#{ STATIC_DIR }#{scripts[i]}"></script>
+-for(var i = 0 ; i < scriptsLibs.length; i++)
+	-if (scriptsLibs[i] == 'libs/html5shiv/dist/html5shiv.min.js' || scriptsLibs[i] == 'libs/css3-mediaqueries-js/css3-mediaqueries.js') continue;
+	<script src="#{ STATIC_DIR }#{scriptsLibs[i]}"></script>
 // [END] Скрипты библиотек
 
-
 // [ START ] Скрипты проекта
-<script src="#{ STATIC_DIR }scripts/"></script>
+-for(var j = 0 ; j < scriptsProject.length; j++)
+	<script src="#{ SCRIPTS_DIR }#{scriptsProject[j]}"></script>
+
+-for(var k = 0 ; k < scriptsModules.length; k++)
+	<script src="#{ SCRIPTS_DIR }#{scriptsModules[k]}"></script>
 // [END] Скрипты проекта
 
+
 // [START] IE8 polyfills
-|<!--[if lt IE 9]><script src="#{ LIBS_DIR }html5shiv/dist/html5shiv.min.js"></script><![endif]-->
-|<!--[if lt IE 9]><script src="#{ LIBS_DIR }css3-mediaqueries-js/css3-mediaqueries.js"></script><![endif]-->
+| <!--[if lt IE 9]><script src="#{ LIBS_DIR }html5shiv/dist/html5shiv.min.js"></script><![endif]-->
+| <!--[if lt IE 9]><script src="#{ LIBS_DIR }css3-mediaqueries-js/css3-mediaqueries.js"></script><![endif]-->
 // [END] IE8 polyfills

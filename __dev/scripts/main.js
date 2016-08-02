@@ -1,3 +1,2 @@
-import hello from './helpers/hello'
-
+import hello from './helpers/hello';
 alert(hello);

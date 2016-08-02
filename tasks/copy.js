@@ -7,11 +7,11 @@ import newer from 'gulp-newer';
 gulp.task('copy', () => (
     gulp.src(config.src.images)
         .pipe(newer(config.dist.images))
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
-            interlaced: true
-        }))
+        //.pipe(imagemin({
+        //    progressive: true,
+        //    svgoPlugins: [{removeViewBox: false}],
+        //    use: [pngquant()],
+        //    interlaced: true
+        //}))
         .pipe(gulp.dest(config.dist.images))
 ));
