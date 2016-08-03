@@ -5,16 +5,19 @@ gulp.task('styles:dependencies', () => (
     runSequence(
         //'sprites',
         //'icons',
-        'styles-vendor',
+        'styles:vendor',
         'styles'
     )
 ));
 
 gulp.task('default', () => (
     runSequence(
+        'clean',
         [
             'styles:dependencies',
-            'jade'
+            'jade',
+            'scripts',
+            'copy'
         ],
         'server',
         'watch'

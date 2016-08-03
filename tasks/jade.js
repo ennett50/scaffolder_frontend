@@ -46,7 +46,7 @@ gulp.task('jade', () => {
         };
 
 
-        gulp.src(config.src.jade)
+        gulp.src([config.src.jade])
             .pipe(plumber())
             .pipe(cached('jade'))
             .pipe(gulpIf(global.watch, inheritance({basedir: '__dev'})))

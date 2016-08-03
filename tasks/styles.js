@@ -15,7 +15,7 @@ import nano from 'gulp-cssnano';
 //import errorHandler from 'gulp-plumber-error-handler';
 
 
-gulp.task('styles-vendor', () => (
+gulp.task('styles:vendor', () => (
     gulp.src([config.src.styles.vendor + '.styl', config.src.styles.additional + '.styl'])
         .pipe(plumber())
         .pipe(stylus({
@@ -47,7 +47,16 @@ gulp.task('styles', () => (
 ));
 
 gulp.task('styles:lint', () => (
-    gulp.src(config.src.styles.dev)
+    gulp.src(config.src.styles.dev[0])
+        .pipe(stylint({
+            reporter: 'stylint-stylish',
+            reporterOptions: {verbose: true}
+        }))
+        .pipe(stylint.reporter())
+));
+
+gulp.task('styles:lint-vendor', () => (
+    gulp.src(config.src.styles.dev[1])
         .pipe(stylint({
             reporter: 'stylint-stylish',
             reporterOptions: {verbose: true}

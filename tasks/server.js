@@ -17,8 +17,9 @@ gulp.task('server', () => (
             }
         },
         server: {
+            logPrefix: "frontend",
             baseDir: [
-                '__dev/images',
+                //'__dev/images',
                 'web'
             ],
             directory: false,

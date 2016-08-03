@@ -15,7 +15,8 @@ let pathFolders = {
             dev: ['__dev/views/**/**/*.styl', '__dev/styles/helpers/**']
         },
         script : ['./__dev/scripts/*.js', './__dev/views/**/**/*.js', '!./__dev/scripts/libs/**/*.js', '!./__dev/scripts/helpers/**/*.js'],
-        jade: ['./__dev/views/*.jade']
+        jade: './__dev/views/*.jade',
+        jade_modules : './__dev/views/modules/**/*.jade'
     },
     dist: {
         script: {

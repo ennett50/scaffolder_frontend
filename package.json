@@ -46,6 +46,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-stylint": "^3.0.0",
     "gulp-stylus": "^2.1.0",
+    "gulp-watch": "^4.3.9",
     "imagemin-pngquant": "^5.0.0",
     "jade-get-data": "^1.0.1",
     "main-bower-files": "^2.13.1",
