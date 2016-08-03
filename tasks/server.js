@@ -17,12 +17,8 @@ gulp.task('server', () => (
             }
         },
         server: {
-            logPrefix: "frontend",
-            baseDir: [
-                //'__dev/images',
-                'web'
-            ],
-            directory: false,
+            baseDir: 'web',
+            directory: true,
             middleware: [debuga()]
         },
         tunnel: !!TUNNEL
