@@ -1,0 +1,31 @@
+extends ./modules/layout/layout
+block vars
+    -var currentPageTitle = "Адреса магазинов"
+block title
+    title= currentPageTitle
+
+block block-content
+    +breadcrumbs([currentPageTitle], '>', true)
+    div.wrapper
+        div.heading
+            h1=currentPageTitle
+        div.content
+            div.tab.__double.clearfix.js-tabs(data-tab-name="contacts-info")
+                a(href="#list-shops").tab-item.__active Списком
+                a(href="#total-map").tab-item На карте
+        div.tab-content(data-tab-content="contacts-info")
+            div(class="tab-content-item" data-tab="list-shops")
+                div.content
+                    include ./modules/contacts-list/contacts-list
+
+                div.catalog-pagination Показаны 5 из 25
+
+                a(href="#").show-more Показать ещё
+
+                a(href="#").show-more.__loading Показать ещё
+
+            div(class="tab-content-item" data-tab="total-map").__hidden
+                div.content
+                    div#js-mapBig.contacts-list-big-map(data-city_code="spb")
+
+        include modules/subscribe/subscribe

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "14 магазинов в 3 <br/>городах РФ",
+    "icon" : "advantages_1.png"
+  },
+  {
+    "name": "Доставка 24 часа <br/>по Санкт-Петербургу",
+    "icon" : "advantages_2.png"
+  },
+  {
+    "name": "Более 1 миллиона <br/>довольных клиентов",
+    "icon" : "advantages_3.png"
+  },
+  {
+    "onlyIcon": true
+  }
+]

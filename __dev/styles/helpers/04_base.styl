@@ -1,3 +1,50 @@
+h1, .title-1,
+h2, .title-2,
+h3, .title-3,
+h4, .title-4,
+h5, .title-5,
+h6, .title-6
+	color $FONT_COLOR
+	font-weight 600
+	margin 0
+	font-MyriadPro()
+	line-height normal
+
+h1, .title-1
+	font-size 40px
+	line-height 42px
+	+below($rebuild)
+		line-height 26px
+		font-size 26px
+
+h2, .title-2
+	font-size 36px
+	+below($rebuild)
+		font-size 22px
+
+h3, .title-3
+	font-size 30px
+	margin-bottom 30px
+	+below($rebuild)
+		font-size 20px
+		margin-bottom 20px
+
+h4, .title-4
+	font-weight normal
+	font-size 28px
+	+below($rebuild)
+		font-size 20px
+
+h5, .title-5
+	font-size 22px
+	+below($rebuild)
+		font-size 16px
+
+h6, .title-6
+	font-size 18px
+	+below($rebuild)
+		font-size 14px
+
 .table
 	display table
 	width 100%
@@ -15,14 +62,7 @@
 	&-columns
 		display table-column
 
-main
-	a
-		color LINK_COLOR
-		&:hover
-			color LINK_COLOR_HOVER
 
-img
-	max-width 100%
 
 .clear,
 .clearfix
@@ -30,15 +70,6 @@ img
 
 .hidden
 	display none !important
-
-.close-content
-	position fixed
-	top 0
-	left 0
-	z-index 5
-	size(100%, 100%)
-	opacity(20)
-	background #000
 
 .align-top
 	vertical-align top !important
@@ -59,7 +90,7 @@ img
 	text-align center !important
 
 .__full-width
-	width 100% !important;
+	width 100% !important
 
 .trans
 	trans()
@@ -100,3 +131,10 @@ img
 .nowrap
 	white-space nowrap
 
+p
+	margin 0 0 20px
+	+below($rebuild)
+		margin 0 0 10px
+
+.__gray
+	color #686868

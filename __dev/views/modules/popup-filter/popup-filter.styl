@@ -1,0 +1,65 @@
+.popup-filter
+	&-wrapper
+		margin 0 -40px
+		+below($rebuild)
+			margin 0 -15px
+	&-btns
+		padding 0 40px
+		margin-bottom 30px
+		+below($rebuild)
+			padding 0 15px
+			margin-bottom 15px
+		.button
+			margin 0 0 0 25px
+			+below($rebuild)
+				margin-left 12px
+	&-title
+		cursor pointer
+		color #363636
+		font-weight 600
+		margin 0
+		font-MyriadPro()
+		line-height 36px
+		font-size 36px
+		padding 13px 60px 13px 40px
+		border-bottom 1px dotted #363636
+		position relative
+		&.__active
+			&:after
+				width 22px
+				height 12px
+				margin-top -6px
+				background url("./images/icons/detail-arrow-small-open.png") no-repeat
+		&:after
+			content ''
+			display block
+			position absolute
+			top 50%
+			right 40px
+			background url("./images/icons/detail-arrow-small.png") no-repeat
+			width 13px
+			height 21px
+			margin-top -10px
+			+below($rebuild)
+				right 15px
+		+below($rebuild)
+			font-size 22px
+			line-height 22px
+			padding 8px 30px 8px 15px
+	&-desc
+		padding 15px 40px
+		display none
+		& + ^[0]-btns
+			margin-top 40px
+			+below($rebuild)
+				margin-top 20px
+		&.__category
+			padding-top 3px
+		+below($rebuild)
+			padding 10px 15px
+	&-item
+		color #363636
+		& + &
+			margin-top 20px
+			+below($rebuild)
+				margin-top 10px

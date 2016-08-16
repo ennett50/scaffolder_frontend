@@ -19,7 +19,8 @@
     "jquery.maskedinput": "^1.4.1",
     "jquery-ui": "1.11.4",
     "html5shiv": "^3.7.3",
-    "css3-mediaqueries-js": "^1.0.0"
+    "css3-mediaqueries-js": "^1.0.0",
+    "slick-carousel": "^1.6.0"
   },
   "overrides": {
     "jquery-ui": {
@@ -33,6 +34,15 @@
       "main": [
         "dist/html5shiv.min.js"
       ]
+    },
+    "slick-carousel" : {
+      "main" : [
+        "slick/slick.min.js",
+        "slick/slick.css"
+      ]
+    },
+    "jquery.maskedinput" :{
+      "main" : ["./dist/jquery.maskedinput.min.js"]
     }
   }
 }

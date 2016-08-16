@@ -1,0 +1,54 @@
+extends ./modules/layout/layout
+
+block vars
+    -var currentPageTitle = ["UI"]
+    -var hideHeader = true
+    -var hideFooter = true
+block block-content
+    +breadcrumbs([currentPageTitle], '>', true)
+    .wrapper
+        form(action="").form
+            div.form-item
+                label Поле ввода
+                input(type="text", name="" placeholder="Поле ввода").error
+                .error-msg Поле обязательно для заполнения
+            div.form-item
+                label Выпадающий список
+                select
+                    option Выберите пункт
+                    option Выберите пункт
+                    option Выберите пункт
+            div.form-item
+                label Нестилизованный выпадающий список
+                select.__default
+                    option Выберите пункт
+                    option Выберите пункт
+                    option Выберите пункт
+            div.form-item
+                label Радиобоксы
+                div.form-item
+                    input(type="radio" id="action-11" name="test")
+                    label(for="action-11") Летний сезон подарков открыт!
+                div.form-item
+                    input(type="radio" id="action-22" name="test")
+                    label(for="action-22") В лето вместе с JBL!
+                div.form-item
+                    input(type="radio" id="action-33" name="test")
+                    label(for="action-33") 500 р. В нашу пользу!
+            div.form-item
+                label Чекбоксы
+                div.form-item
+                    input(type="checkbox" id="action-1")
+                    label(for="action-1") Летний сезон подарков открыт!
+                div.form-item
+                    input(type="checkbox" id="action-2")
+                    label(for="action-2") В лето вместе с JBL!
+                div.form-item
+                    input(type="checkbox" id="action-3")
+                    label(for="action-3") 500 р. В нашу пользу!
+            div.form-item
+                label Текстовый блок
+                textarea
+            div.form-item
+                input(type="submit", value="Отправить").button
+                input(type="reset", value="Очистить").button-reset

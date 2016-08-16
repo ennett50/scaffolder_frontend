@@ -1,0 +1,17 @@
+extends ./modules/layout/layout
+block vars
+    -var currentPageTitle = "Вход на сайт"
+block title
+    title= currentPageTitle
+
+block block-content
+    +breadcrumbs(['Вход в личный кабинет'], '>', true)
+    div.wrapper
+        div.heading
+            h1 Регистрация
+        div.content
+            a(href="#").link-back Вход на сайт
+            form.form(method="" action="")
+                div.form-item
+                    input(type="text" placeholder="Электронная почта").__big
+                input(type="submit" value="Зарегистрироваться").button.__wide.__big

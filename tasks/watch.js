@@ -10,15 +10,15 @@ gulp.task('watch', () => {
     global.watch = true;
 
     watch( [config.src.styles.dev[0]], () => {
-        runSequence(['styles', 'styles:lint'], () => bs.reload('web/template/template_styles.css'));
+        runSequence(['styles'/*, 'styles:lint'*/], () => bs.reload('web/template/template_styles.css'));
     });
     watch([config.src.styles.vendor, config.src.styles.dev[1]], () => {
-        runSequence(['styles:vendor', 'styles:lint-vendor'], () => bs.reload('web/template/styles/vendor.css'));
+        runSequence(['styles:vendor'/*,'styles:lint-vendor'*/], () => bs.reload('web/template/styles/vendor.css'));
     });
 
     watch(config.src.script, () => runSequence('scripts'));
 
-    watch([config.src.jade, config.src.jade_modules], () => runSequence('jade', function(){
+    watch([config.src.jade, config.src.jade_modules], () => runSequence(['jade', 'jade:index'], function(){
         setTimeout(function(){
             bs.reload
         }, 2000)

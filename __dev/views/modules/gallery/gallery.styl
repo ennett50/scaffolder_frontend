@@ -1,0 +1,12 @@
+.gallery
+	position relative
+	text-align center
+	padding-bottom 25px
+	margin-bottom 20px
+	&-item
+		text-align center
+	& &-image
+		display inline-block
+		max-height 375px
+		+below($rebuild)
+			max-height 250px

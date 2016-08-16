@@ -1,0 +1,45 @@
+.footer
+	position relative
+	&-menu
+		font-size 24px
+		text-align center
+		+below($rebuild)
+			margin-bottom 10px
+			font-size 16px
+		&-item
+			position relative
+			width 50%
+			float left
+			margin-bottom 20px
+			+below($rebuild)
+				margin-bottom 10px
+	&-phone
+		text-align center
+		color #000
+		background #fff
+		padding 0 10px
+		font-size 56px
+		font-weight 700
+		line-height 98px
+		height 90px
+		white-space nowrap
+		display block
+		+below($default)
+			font-size 32px
+			line-height 74px
+			height 70px
+	&-line
+		padding 35px 30px
+		margin-bottom 25px
+		+below($rebuild)
+			padding 15px 10px
+			margin-bottom 0
+			padding-bottom 0
+
+	&-market
+		text-align right
+		float right
+		width 50%
+		display block
+		+below($rebuild)
+			max-width 150px

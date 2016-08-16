@@ -1,0 +1,234 @@
+extends ./modules/layout/layout
+
+block vars
+    -var currentPageTitle = ["UI"]
+    -var hideHeader = true
+    -var hideFooter = true
+block block-content
+
+    +breadcrumbs([currentPageTitle], '>', true)
+    .wrapper
+        -var nav = []
+        -nav.push([ 'buttons', 'Кнопки' ])
+        -nav.push([ 'forms', 'Формы' ])
+        -nav.push([ 'pagination', 'Пагинация' ])
+        -nav.push([ 'breadcrumbs', 'Хлебные крошки' ])
+        -nav.push([ 'captcha', 'Captcha' ])
+        -nav.push([ 'tabs', 'Табы' ])
+
+        nav.nav._nav
+            ul.nav-list._list
+                for item in nav
+                    li.nav-item._item
+                        a(href="##{ item[0] }").nav-link._link!= item[1]
+
+
+        //+repeat(30)
+        //	br
+        //
+        //-var buttons = {}
+        //-buttons.colors = ['', "blue", "red", "green", "gray"]
+        //-buttons.size = ['small', '', 'middle', 'big']
+        //-buttons.mods = ['wide', 'border', 'round']
+        //
+        //mixin button(_color, _size, _mod)
+        //	button(data-button="#{ _color }" data-button-size="#{ _size }" data-button-mod="#{ _mod != '' ? _mod.join(' ') : '' }" style="margin: 5px 0")&attributes(attributes)
+        //		if block
+        //			block
+        //		else
+        //			if _color == ''
+        //				| def
+        //			else
+        //				!= _color
+        //			if _size == ''
+        //				| , def
+        //			else
+        //				!= ', ' + _size
+        //			if _mod != ''
+        //				!= ', ' + _mod.join('&')
+            br
+
+        h2#buttons Кнопки #[small (цвет, размер, модификация)]
+        //for color in buttons.colors
+        //	p
+        //		for size in buttons.size
+        //			+button(color, size, '')
+        //			+button(color, size, '')(class="__loading")
+        //			for mod in buttons.mods
+        //				+button(color, size, [mod])
+        //				+button(color, size, [mod])(class="__loading")
+        //			+button(color, size, buttons.mods)
+        //			+button(color, size, buttons.mods)(class="__loading")
+        //			br
+        //p
+        //	+button(color, '', '')(disabled="") Disabled
+        //
+        //+repeat(3)
+        //	br
+        //hr
+        //+repeat(3)
+        //	br
+
+        h2#forms Формы
+        form
+            .form-title Заголовок формы
+            .form-item
+                label.form-label Заголовок поля
+                input(type="text", name="" placeholder="Подпись поля")
+            .form-line.columns
+                +repeat(3)
+                    .form-item.column.__1-3
+                        label.form-label Заголовок поля
+                        input(type="text", name="" placeholder="Подпись поля")
+            .form-line.columns
+                -var titles = ["Стилизованный select", "Combobox", "Combobox", "Дефолтный select"]
+                for i in range(4)
+                    .form-item.column.__1-4
+                        label.form-label!= titles[i]
+                        -var attrs = {}
+                        if i == 1
+                            -attrs = {'data-select-custom': 'combobox'}
+                        else if i == 2
+                            -attrs = {'data-select-custom': 'combobox'}
+                        else if i == 3
+                            -attrs = {'data-gui-native': ''}
+                        //- [data-select-custom="combobox"]
+                        select&attributes(attrs)
+                            option(value="1") Lorem ipsum dolor.
+                            option(value="2") Magnam, laboriosam, non.
+                            option(value="3") Quisquam, rerum tempora!
+            //.form-item
+            //    label.form-label radio-кнопки
+            //    .form-line
+            //        for i in range(4)
+            //            -var attrs = {}
+            //            if i > 1
+            //                -attrs = {'data-gui-native': ''}
+            //            .form-item
+            //                if i == 0
+            //                    input(type="radio" name="radio-#{ i > 1 ? '00' : '11' }" id="radio-#{ i }" checked)
+            //                else
+            //                    input(type="radio" name="radio-#{ i > 1 ? '00' : '11' }" id="radio-#{ i }")&attributes(attrs)
+            //                label(for="radio-#{ i }") radio-кнопка
+
+            //.form-item
+            //    label.form-label checkbox'ы
+            //    .form-line
+            //        for i in range(4)
+            //            -var attrs = {}
+            //            if i > 1
+            //                -attrs = {'data-gui-native': ''}
+            //            .form-item
+            //                if i == 0
+            //                    input(type="checkbox" name="checkbox-#{ i }" id="checkbox-#{ i }" checked)&attributes(attrs)
+            //                else
+            //                    input(type="checkbox" name="checkbox-#{ i }" id="checkbox-#{ i }")&attributes(attrs)
+            //                label(for="checkbox-#{ i }") checkbox
+
+            .form-line.columns
+                .form-item.column.__1-2.error
+                    input(type="text", name="" placeholder="Подпись поля")
+                    .error-msg Поле обязательно для заполнения
+                .form-item.column.__1-2.error
+                    select
+                        option(value="1") Lorem ipsum dolor.
+                        option(value="2") Magnam, laboriosam, non.
+                        option(value="3") Quisquam, rerum tempora!
+                    .error-msg Поле обязательно для заполнения
+            .form-line.columns
+                .form-item.column.__1-4.error
+                    input(type="checkbox" name="checkbox-0-1" id="checkbox-0-1")
+                    label(for="checkbox-0-1") checkbox
+                    .error-msg Поле обязательно для заполнения
+                .form-item.column.__1-4.error
+                    input(type="radio" name="radio-0-1" id="radio-0-1")
+                    label(for="radio-0-1") radio-кнопка
+                    .error-msg Поле обязательно для заполнения
+                .form-item.column.__1-4.error
+                    input(type="checkbox" name="checkbox-1-1" id="checkbox-1-1" data-gui-native="")
+                    label(for="checkbox-1-1") checkbox
+                    .error-msg Поле обязательно для заполнения
+                .form-item.column.__1-4.error
+                    input(type="radio" name="radio-1-1" id="radio-1-1" data-gui-native="")
+                    label(for="radio-1-1") radio-кнопка
+                    .error-msg Поле обязательно для заполнения
+
+            .form-item
+                input(type="text", name="" placeholder="Подпись поля")
+
+            .form-item.error
+                input(type="text", name="" placeholder="Подпись поля")
+                .error-msg Поле обязательно для заполнения
+
+            .form-item
+                input(type="text", name="" placeholder="Подпись поля")
+
+        //
+        //+repeat(3)
+        //	br
+        //hr
+        //+repeat(3)
+        //	br
+        //
+        //h2#pagination Пагинация
+        //
+        //+pagination( range(1, 4).concat( ['...'].concat( range(17, 20) ) ), null, 'Предыдущие →' )
+        //
+        //+repeat(3)
+        //	br
+        //hr
+        //+repeat(3)
+        //	br
+        //
+        //h2#breadcrumbs Хлебные крошки
+        //
+        //
+        //-breadcrumbs('/').add(["Lorem ipsum dolor.", "Corporis, aspernatur earum?", "Ut nulla, exercitationem!", "Ipsa, repellendus, est."]).render()
+        //
+        //+repeat(3)
+        //	br
+        //hr
+        //+repeat(3)
+        //	br
+        //
+        //
+        //h2#captcha Captcha
+        //.form-line.columns
+        //	.form-item.column.__1-2
+        //		.captcha
+        //			.captcha-image
+        //				a(href="#" title="Обновить картинку").captcha-refresh.js-captcha-refresh
+        //				img(src="#{ getImage(178, 38) }", alt="")
+        //			.captcha-input
+        //				.form-item
+        //					input(type="text", name="" placeholder="Код с картинки...")
+        //	.form-item.column.__1-2
+        //		.captcha
+        //			.captcha-image
+        //				img(src="#{ getImage(178, 38) }", alt="")
+        //			a(href="#" title="Обновить картинку").captcha-refresh.js-captcha-refresh
+        //			.captcha-input
+        //				.form-item
+        //					input(type="text", name="" placeholder="Код с картинки...")
+        //
+        //+repeat(3)
+        //	br
+        //hr
+        //+repeat(3)
+        //	br
+        //
+        //
+        //h2#tabs Табы
+        //.box.box-content
+        //	for color in ['green', 'purple', 'pink', 'orange', 'blue']
+        //		.tabs(class="__#{ color }")
+        //			.tabs-inner
+        //				a(href="#" class="__current").tab!= "<<Актвный>>"
+        //				+repeat(3)
+        //					a(href="#").tab!= getText(2)
+        //
+        //+repeat(3)
+        //	br
+        //hr
+        //+repeat(3)
+        //	br

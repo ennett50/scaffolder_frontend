@@ -1,0 +1,68 @@
+.products
+	padding 0 0 70px
+	+below($prebuild)
+		padding-bottom 45px
+	.slick-dots
+		bottom: -49px;
+		+below($prebuild)
+			bottom -33px
+	&-slider
+		margin-left -1px
+		&.__line
+			.slick-dots
+				bottom 20px
+				+below($rebuild)
+					bottom 10px
+			padding-bottom 60px
+			margin -30px -30px -31px -31px
+			+below($rebuild)
+				padding-bottom 40px
+				margin -10px -15px -11px -16px
+			.products-item
+				float left
+				min-height 489px
+				+below($default)
+					min-height 356px
+		&-wrapper
+			position relative
+			outline none
+	&-item
+		float left
+		border-box()
+		line-height normal
+		width 50%
+		padding 27px 30px 20px
+		border-bottom 1px solid $LIGHT_GREY
+		border-right 1px solid $LIGHT_GREY
+		+below($smartphone)
+			font-size 16px
+		+below($prebuild)
+			float none
+			width 100%
+		p
+			margin 0
+	&-link
+		display block
+		color $FONT_COLOR
+		font-size 24px
+		overflow hidden
+		line-height 24px
+		outline none
+		+below($smartphone)
+			font-size 20px
+			line-height 20px
+	&-title
+		height 73px
+		overflow hidden
+		margin-bottom 25px
+		+below($smartphone)
+			margin-bottom 10px
+			height 60px
+	&-preview
+		content-center(100%, 170px)
+		margin-bottom 20px
+		+below($prebuild)
+			height 115px
+
+	&-price
+		white-space nowrap

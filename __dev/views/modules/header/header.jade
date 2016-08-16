@@ -1,2 +1,15 @@
 header.header
-    h3 I am header!Big brother!
+    div.header-menu.js-show-info-popup(data-popup-info="#main-menu")
+        img(src="./template/images/icons/menu.png" alt="" title="")
+    div.header-btns
+        div.header-btns-search
+            img(src="./template/images/icons/search.png" alt="" title="")
+        a(href="#").header-btns-basket
+            div.header-btns-basket-icon
+                img(src="./template/images/icons/basket.png" alt="" title="")
+            div.header-btns-basket-count 3
+    div.clearfix
+    div.header-logo
+        img(src="./template/images/logo.png" alt="" title="")
+
+include ../menu/menu

@@ -1,118 +1,249 @@
-//+$textbox()
-//	border 1px solid #ccc
-//	width 100%
-//	padding 6px 10px
-//	font-size 14px
-//	border-box()
-//	line-height normal
-//	border-radius 0
-//	box-shadow none
-//	background #fff
-//
-//	.error &,
-//	&.error
-//		border-color #f0b8b8
-//		box-shadow 0 0 5px rgba(219,42,42, 0.20)
-//
-//		.ui-select-wrapper.error .ui-selectmenu-button
-//			border-color #f0b8b8
-//
-//	&:hover
-//		border-color #ccc - 10%
-//	&:focus
-//		border-color #ccc - 20%
-//+$textbox(true)
-//	-webkit-appearance none
-//	border-radius 0
-main
-	.req
-		font-size: 12px;
-		color: #db2a2a;
-		position: relative;
-		top: -5px;
+[type="text"],
+textarea,
+[type="password"],
+[type="date"],
+[type="datetine"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="time"],
+[type="tel"],
+[type="month"],
+[type="week"],
+select,
+.ui-combobox-button .ui-autocomplete-input
+	display block
+	width 100%
+	border-radius 0
+	border-box()
+	background #fff
+	font-size 36px
+	padding 25px 15px 21px
+	color $FONT_COLOR
+	font-MyriadPro()
+	font-weight normal
+	border 3px solid $GREY
+	+below($rebuild)
+		font-size 24px
+		padding 10px 12px
+	&.error
+		border-color: $ERROR
+	&.__small
+		font-size 24px
+		padding 10px 15px 9px
+		border-width 1px
+		+below($rebuild)
+			font-size 18px
+			padding 5px 10px
+	&.__big
+		font-size 36px
+		padding 25px 15px 21px
+		+below($rebuild)
+			font-size 24px
+			padding 10px 12px
+.ui-combobox-button .ui-autocomplete-input
+	padding-right 55px
+.ui-combobox-button
+	color $FONT_COLOR
+	font-weight: normal;
+	position: relative;
+.ui-combobox-button .custom-combobox-toggle
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 50px;
+	height: auto;
+	&:after
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		display: block;
+		background: url("../images/icons/detail-arrow-small-open.png") no-repeat 0 0;
+		width: 22px;
+		height: 12px;
+.ui-widget-content
+	border 3px solid $GREY
+	color #000
+	border-top 0
+.ui-menu .ui-menu-item
+	padding 15px
+select
+	line-height 54px
+	height 60px
+	padding-top 0
+	padding-bottom 0
+	+below($rebuild)
+		padding-top 0
+		padding-bottom 0
+		line-height 38px
+		height 43px
+select:not('.__default')
+	-webkit-appearance: none;
+	-moz-appearance:none;
+	appearance:none;
+.req
+	font-size 12px
+	color $ERROR
+	position relative
+	top -5px
 
 .form
 	position relative
+	&-separate
+		height 1px
+		background $LIGHT_GREY
+		margin 25px -30px
+		+below($rebuild)
+			margin 12px -15px
 	&-item
-		&.width-50
-			padding-right: 13px;
-			border-box()
-		&-right
-			display: inline-block;
-			vertical-align: middle;
-			position: relative;
-			top: -2px;
-			margin-left: 28px;
-			&-number, &-date
-				display: inline-block;
-				vertical-align: middle;
-				margin-left 20px
-				input[type="text"]
-					width 100%
-			&-number
-				margin-left 15px
-				width 50px
-			&-date
-				width 145px
-
-		margin-bottom 18px
+		margin-bottom 30px
+		+below($rebuild)
+			margin-bottom 15px
+		&.error
+			[type="text"],
+			textarea,
+			[type="password"],
+			[type="date"],
+			[type="datetine"],
+			[type="email"],
+			[type="number"],
+			[type="search"],
+			[type="time"],
+			[type="tel"],
+			[type="month"],
+			[type="week"],
+			select,
+			.ui-combobox-button .ui-autocomplete-input
+				border-color: $ERROR
+		&.__third
+			margin-left -30px
+			margin-right -30px
+			+below($rebuild)
+				margin-left -15px
+				margin-right -15px
+		&-third
+			float left
+			width: 33.33%;
+			padding: 0 30px;
+			+below($rebuild)
+				display: block;
+				float: none;
+				width: 100%;
+				padding: 0 15px;
+				& + &
+					margin-top 15px
+		&-bottom
+			display block
+			margin 40px -30px -30px -30px
+			border-top 1px solid $LIGHT_GREY
+			padding 15px
+			text-align center
+			font-size 36px
+			+below($rebuild)
+				margin 20px -15px -15px
+				font-size 24px
 		&-column
 			width 210px
 			margin-left 26px
-			&:first-of-type
+			&first-of-type
 				margin-left 0
-		&.error
-			.ui-select-wrapper
-				.ui-selectmenu-button
-					border 1px solid #f0b8b8 !important
-
-	&-column-line
-		margin: 30px -30px 0;
-		padding: 20px 30px;
-		border-top: 1px solid #dae3e4;
-		& + .form-column-line
-			margin-top 0
 	&-attention
-		color: #969696;
-		font-size: 12px;
-		margin-bottom: 15px;
-		margin-top: 7px;
-		font-weight: 300;
-		text-align: left;
-		padding-left: 15px;
+		color #969696
+		font-size 12px
+		margin-bottom 15px
+		margin-top 7px
+		font-weight 300
+		text-align left
+		padding-left 15px
 	textarea
-		height 168px
-
+		height 300px
+		resize vertical
+		&.__full-wide
+			display: block;
+			padding 30px
+			border: 1px solid #cfcfcf;
+			border-top: 0;
+			border-radius: 0 0 5px 5px;
+			+below($rebuild)
+				padding 15px
+				height 185px
 	label
-		font-size 14px
 		text-align left
 		color #000
 		display block
-		margin-bottom 10px
-	input,
-	textarea
-		& + label
-			display inline-block
-			vertical-align middle
-			margin-bottom 0
-			margin-left 10px
+		margin-bottom 5px
+		font-size 30px
+		font-weight 600
+		+below($rebuild)
+			font-size 22px
 
-	&.compact
-		input,
-		textarea
-			width 60%
 
-	&.error
-		input,
-		textarea
-			border 1px solid #f0b8b8 !important
-			box-shadow 0 0 5px rgba(219,42,42, 0.20) !important
 
 
 .error-msg
 	margin-top 10px
 	display inline-block
-	margin-left 10px
-	color #db2a2a
-	font-size 14px
+	color #db5f46
 	text-align left
+
+[type="radio"],
+[type="checkbox"]
+	display: none;
+	& + label
+		position relative
+		color inherit
+		font-size 28px
+		font-weight normal
+		+below($rebuild)
+			font-size 16px
+		&:before
+			margin-right 15px
+			content ''
+			display inline-block
+			vertical-align middle
+			top -2px
+			position relative
+			width 50px
+			height 50px
+			border-radius 3px
+			background-color #fff
+			border 1px solid $BLUE
+			+below($rebuild)
+				width 25px
+				height 25px
+				margin-right 8px
+
+[type="radio"]
+	& + label
+
+		&:before
+			border-radius 50%
+	&:checked + label:before
+		content: "\2022";
+		color: $BLUE;
+		font-size: 80px;
+		text-align: center;
+		line-height 50px
+		+below($rebuild)
+			font-size 40px
+			line-height 25px
+
+
+input[type=checkbox]
+	&:checked + label:before
+		content: "";
+		background-image url("../images/icons/checkbox.png")
+		background-position 50% 50%
+		background-repeat no-repeat
+		color: $BLUE;
+		+below($rebuild)
+			content: "\2713";
+			background-image none
+			line-height 25px
+			text-align center

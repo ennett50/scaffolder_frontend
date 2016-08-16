@@ -1,14 +1,10 @@
-base-font()
-	font-family: Arial, sans-serif;
-	font-size: 14px
-	color: #383435
 content-center(w = 100%, h = w, important = false )
 	important = (important == true ? !important : )
 	position: relative
 	width: w important
 	height: h important
 
-	> *
+	> img
 		position: absolute
 		top: 0 important
 		bottom: 0 important
@@ -31,7 +27,7 @@ background-clip()
 
 // in css -> images("test.png")
 images(file)
-	url( $img_path + file )
+	url( $IMAGES_PATH + file )
 
 trans()
 	transition: all 0.2s
@@ -95,6 +91,7 @@ text-shadow(x, y, r, color)
 
 // in css with inset -> gradient-linear(#000, #fff)
 gradient-linear(top, bottom)
+	background bottom
 	background: linear-gradient(top, bottom)
 
 // in css -> text-ellipsis(100px) or text-ellipsis(80%)
@@ -127,3 +124,18 @@ sprite($sprite)
 	spritePosition($sprite)
 	spriteWidth($sprite)
 	spriteHeight($sprite)
+
+
+// smart hide wiath opacity
+hideOpacity()
+	opacity 0
+	visibility hidden
+	height 0
+	overflow hidden
+	margin 0
+showOpacity()
+	opacity 1
+	visibility visible
+	height inherit
+	overflow inherit
+	margin inherit

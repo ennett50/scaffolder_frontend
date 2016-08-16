@@ -1,0 +1,507 @@
+@import 'helpers/01_variables.styl'
+a
+	color $LINK_COLOR
+	text-decoration none
+	&:hover
+		color $LINK_COLOR_HOVER
+
+img
+	max-width 100%
+
+body
+	position relative
+	font-size $BASE_SIZE
+	line-height $LINE_HEIGHT
+	color $FONT_COLOR
+	font-MyriadPro()
+	font-weight normal
+	background $BODY_BG
+	+below($rebuild)
+		font-size $ADAPTIVE_SIZE
+*:focus
+	outline none
+main
+	position relative
+	margin 0 auto
+	min-width 300px
+	+desktop()
+		max-width 990px
+
+.wrapper
+	padding 0 20px
+	+below($default)
+		padding 0 10px
+
+/**
+* slick settings
+*/
+.slick-dots
+	margin 0
+	padding 0
+	position absolute
+	bottom 0
+	text-align center
+	display block
+	list-style none
+	width 100%
+	li
+		display inline-block
+		vertical-align middle
+		margin 0 6px 5px
+		&.slick-active
+			button
+				background $BLUE
+	button
+		text-indent -99999px
+		font-size 0
+		outline none
+		background $LIGHT_GREY
+		width 15px
+		height 15px
+		border none
+		border-radius 50%
+
+.heading
+	position relative
+	border-radius 5px 5px 0 0
+	padding 25px 27px
+	gradient-linear(#fff, #f2f2f2)
+	border 1px solid $LIGHT_GREY
+	&[data-default="small"]
+		padding 17px 27px
+		+below($rebuild)
+			padding-top 9px
+			padding-bottom 9px
+	&.__inline
+		padding-right 135px
+		+below($rebuild)
+			padding-right 85px
+	&.__person-login
+		padding-right 185px
+		+below($rebuild)
+			padding-right 130px
+	p
+		margin 25px 0 0 0
+		+below($rebuild)
+			margin-top 10px
+	& + .content
+		border-top 0
+		border-radius 0 0 5px 5px
+	+below($rebuild)
+		padding 15px
+	&-detail
+		position absolute
+		top 50%
+		right 27px
+		margin-top -15px
+		+below($rebuild)
+			margin-top -12px
+
+.content
+	position relative
+	background #fff
+	border 1px solid $LIGHT_GREY
+
+	border-radius 5px
+	padding 30px
+	margin-bottom: 20px;
+	.heading
+		margin 25px -31px
+		+below($rebuild)
+			margin 11px -16px
+	+below($rebuild)
+		padding 10px 15px
+		border-top 1px solid $LIGHT_GREY
+		margin-bottom 10px
+	& + .tab-content
+		margin-top -90px
+		margin-bottom -30px
+		+below($rebuild)
+			margin-top -50px
+.button
+	cursor pointer
+	margin-bottom 18px
+	outline 0
+	border 0
+	text-decoration none
+	border-radius 5px
+	gradient-linear(#509de4, $BLUE)
+	color #fff
+	font-size 20px
+	line-height normal
+	display inline-block
+	position relative
+	padding 15px 15px 11px
+	border-box()
+	&.__logout, &.__login
+		position absolute
+		right 30px
+		top 50%
+		margin-top -25px
+		margin-bottom 0
+		+below($rebuild)
+			right 15px
+			margin-top -18px
+	&.__login
+		right 70px
+		+below($rebuild)
+			right 57px
+	&.__big
+		width 100%
+		padding: 26px 20px;
+		font-weight: bold;
+		font-size: 36px;
+		text-align center
+		border-radius 8px
+		margin-bottom 25px
+		+below($rebuild)
+			padding 10px
+			font-size 24px
+			margin-bottom 15px
+	+below($rebuild)
+		font-size 16px
+		padding: 10px 10px 7px;
+	&:hover
+		color #fff
+	&.__add-basket
+		font-size 25px
+		padding 18px 60px 15px 20px
+		+below($smartphone)
+			padding: 10px 40px 7px 15px;
+			&:after
+				right 12px
+		&:after
+			content ''
+			display block
+			position absolute
+			right 18px
+			top 50%
+			width 23px
+			height 24px
+			margin-top -12px
+			background url('../images/icons/basket-inverse.png') no-repeat
+		.rouble, .rub
+			font-size 22px
+		&.__big
+			width 100%
+			padding: 17px 20px;
+			font-weight: bold;
+			font-size: 42px;
+			text-align center
+			border-radius 10px
+			+below($rebuild)
+				padding 10px
+				font-size 30px
+
+			&:after
+				position relative
+				top 0
+				right 0
+				display inline-block
+				vertical-align middle
+				background url('../images/icons/basket-inverse-big.png') no-repeat
+				width 36px
+				height 38px
+				margin 0 0 0 25px
+				+below($rebuild)
+					margin-left 10px
+					background url('../images/icons/basket-inverse.png') no-repeat
+					width 23px
+					height 24px
+
+.button-reset
+	background transparent
+	padding 0
+	line-height normal
+	color $BLUE
+	text-decoration none
+	cursor pointer
+	outline 0
+	border 0
+	border-box()
+	display inline-block
+
+.button-inverse
+	border 2px solid $BLUE
+	ursor pointer
+	margin-bottom 18px
+	outline 0
+	text-decoration none
+	border-radius 5px
+	color #000
+	background transparent
+	font-size 20px
+	line-height normal
+	display inline-block
+	position relative
+	padding 15px 15px 11px
+	border-box()
+	+below($rebuild)
+		font-size 16px
+		padding: 10px 10px 7px;
+	&:hover
+		color #000
+
+
+.breadcrumbs
+	position relative
+	background $DARK_GREY
+	color #9c9c9c
+	padding 15px 0
+	margin-bottom 20px
+	font-size 24px
+	display block
+	+below($rebuild)
+		padding 10px
+		font-size 16px
+	&-sep
+		display inline-block
+		vertical-align middle
+	&-link
+		color #9c9c9c
+		display inline-block
+		vertical-align middle
+		_text-overflow()
+		max-width 400px
+		+below($rebuild)
+			max-width 200px
+
+.__wide
+	width 100%
+	text-align center
+.show-more
+	background #fff
+	border-radius 5px
+	margin-bottom 20px
+	padding 13px
+	display block
+	text-align center
+	border 1px solid $LIGHT_GREY
+	font-size 30px
+	&.__loading
+		background #fff url('../images/preloader.gif') no-repeat 50% 50%
+		color transparent
+	+below($rebuild)
+		padding 8px
+		font-size 20px
+
+.popup-info
+	background #fff
+	position fixed
+	z-index 2
+	display none
+	padding 30px 40px
+	overflow auto
+	top 0
+	left 0
+	width 100%
+	border-box()
+	height 100%
+	+below($rebuild)
+		padding 10px 15px
+	&-close
+		position absolute
+		top 35px
+		right 30px
+		width 28px
+		height 28px
+		background url("../images/icons/close.png") no-repeat
+		cursor pointer
+		z-index 5
+		+below($rebuild)
+			top 10px
+			right 15px
+*
+	border-box()
+.tab
+	position relative
+	margin-bottom 35px
+	+below($rebuild)
+		margin-bottom 20px
+	&.__double
+		& ^[0]-item
+			width 48%
+			float right
+			padding-right 0
+			padding-left 0
+			&:first-child
+				float left
+				+below($rebuild)
+					float none
+			+below($rebuild)
+				display block
+				width 100%
+				float none
+				& + &
+					margin-top 10px
+	&-content
+		position relative
+		padding 30px 0
+		.content
+			border-top 0
+			border-top-left-radius 0
+			border-top-right-radius 0
+		&-item
+			&.__active
+				visibility: visible;
+				overflow: inherit;
+				height: inherit;
+				opacity: 1;
+			&.__hidden
+				visibility: hidden;
+				overflow: hidden;
+				opacity: 0;
+				height: 0;
+	&-item
+		font-size 26px
+		font-weight bold
+		border-radius 50px
+		color #686868
+		padding 10px 40px
+		text-align center
+		cursor pointer
+		display inline-block
+		background #f2f2f2
+		+below($smartphone)
+			font-size 20px
+		+below($rebuild)
+
+			padding 5px 20px
+			display block
+			width 100%
+			float none
+			& + &
+				margin-top 10px
+		&.__active
+			color #fff
+			background $BLUE
+
+.social
+	position relative
+	float left
+	width 50%
+	margin-top 10px
+	+below($rebuild)
+		margin-top 6px
+	&-item
+		display inline-block
+		vertical-align middle
+		margin-right 10px
+		size(50px)
+		background-color #000
+		+below($rebuild)
+			size(30px)
+		&.__vk
+			background-color #035687
+		&.__fb
+			background-color #183c7f
+		&.__insta
+			background-color #b5a27d
+		&.__login
+			background none
+			width inherit
+			height inherit
+			&.__vk
+				&:before
+					background-color #035687
+			&.__fb
+				&:before
+					background-color #183c7f
+			&:before 
+				content '' 
+				size(50px)
+				display inline-block
+				vertical-align: middle
+				margin-right 10px
+				+below($rebuild)
+					size(30px)
+
+	&-login
+		font-size 36px
+		+below($smartphone)
+			text-align center
+		+below($rebuild)
+			font-size 26px
+		.social-item
+			width 100px
+			height 100px
+			+below($rebuild)
+				width 45px
+				height 45px
+		&-text
+			display inline-block
+			vertical-align middle
+			margin-right 10px
+			+below($smartphone)
+				display block
+
+.link-back
+	color #000
+	font-weight 700
+	font-size 36px
+	margin-bottom 30px
+	display inline-block
+	+below($rebuild)
+		font-size 24px
+		margin-bottom 15px
+	&:before
+		content ''
+		display inline-block
+		width 19px
+		height 31px
+		vertical-align middle
+		margin-right 12px
+		margin-top -2px
+		background url('../images/icons/arrow-back-menu.png') no-repeat
+.counter
+	position relative
+	margin-bottom 20px
+	white-space nowrap
+	&-item, &-text
+		display inline-block
+		vertical-align middle
+	&-item
+		width 70px
+		height 60px
+		line-height 60px
+		border 1px solid $LIGHT_GREY
+		border-radius 4px
+		color #707070
+		text-align center
+		cursor pointer
+		gradient-linear(#fff, #f2f2f2)
+		font-size: 48px;
+		font-weight: bold;
+		position relative
+		z-index 2
+		+below($rebuild)
+			width 50px
+			height 40px
+			line-height 40px
+			font-size 20px
+		&.__negative
+			font-size 28px
+			+below($rebuild)
+				font-size 14px
+			&:before
+				content '—'
+
+		&.__positive
+			&:before
+				content '+'
+
+	&-text
+		width 90px
+		border-width 1px
+		text-align center
+		padding 0
+		height 60px
+		line-height 58px
+		margin 0 -10px
+		+below($rebuild)
+			height 40px
+			line-height 40px
+			margin 0 -7px
+			width 60px
+	+below($rebuild)
+		margin-bottom 10px

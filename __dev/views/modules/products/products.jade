@@ -1,0 +1,10 @@
+div.heading
+    div.title-1 Популярные товары
+
+div.products.content
+    div.products-slider.js-popular-slider
+        -for(var j = 0; j < 2; j++)
+            div.products-slider-wrapper.clearfix
+                -for(var i = 0; i < 2; i++)
+                    -each item, index in getData('products.json')
+                        +catalogItem(item, index)

@@ -1,19 +1,30 @@
-// [ START ] Скрипты библиотек
--for(var i = 0 ; i < scriptsLibs.length; i++)
-	-if (scriptsLibs[i] == 'libs/html5shiv/dist/html5shiv.min.js' || scriptsLibs[i] == 'libs/css3-mediaqueries-js/css3-mediaqueries.js') continue;
-	<script src="#{ STATIC_DIR }#{scriptsLibs[i]}"></script>
-// [END] Скрипты библиотек
+footer.footer.wrapper
+    div.footer-menu.clearfix
+        -each item in getData('footer-menu.json')
+            div.footer-menu-item
+                if (currentPageTitle == item.name )
+                    span.footer-menu-link.__current= item.name
+                else
+                    a(href="#{item.link}").footer-menu-link= item.name
 
-// [ START ] Скрипты проекта
--for(var j = 0 ; j < scriptsProject.length; j++)
-	<script src="#{ SCRIPTS_DIR }#{scriptsProject[j]}"></script>
+    a(href="tel:+78123414222").footer-phone +7 (812) 341-42-22
 
--for(var k = 0 ; k < scriptsModules.length; k++)
-	<script src="#{ SCRIPTS_DIR }#{scriptsModules[k]}"></script>
-// [END] Скрипты проекта
+    div.footer-line.clearfix
+        div.social
+            a(href="#" target="_blank" rel="nofollow").social-item.__vk
+            a(href="#" target="_blank" rel="nofollow").social-item.__fb
+            a(href="#" target="_blank" rel="nofollow").social-item.__insta
+
+        a(href="#" target="_blank" rel="nofollow").footer-market
+            img(src="./template/images/icons/appstore.png" alt="" title="")
+
+     p.align-center © 2011-2016 iPort - Магазины #[nobr Apple Premium Reseller]
+     p.align-center
+        a(href="http://iport.ru") Полная версия сайта
 
 
-// [START] IE8 polyfills
-| <!--[if lt IE 9]><script src="#{ LIBS_DIR }html5shiv/dist/html5shiv.min.js"></script><![endif]-->
-| <!--[if lt IE 9]><script src="#{ LIBS_DIR }css3-mediaqueries-js/css3-mediaqueries.js"></script><![endif]-->
-// [END] IE8 polyfills
+
+
+
+
+

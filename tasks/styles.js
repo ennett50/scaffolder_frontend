@@ -4,7 +4,7 @@ import plumber from 'gulp-plumber';
 import rupture from 'rupture';
 
 import stylint from 'gulp-stylint';
-
+import filter from 'gulp-filter';
 import stylus from 'gulp-stylus';
 import importIfExist from 'stylus-import-if-exist';
 import autoprefixer from 'autoprefixer-stylus';
@@ -12,12 +12,11 @@ import gcmq from 'gulp-group-css-media-queries';
 import nano from 'gulp-cssnano';
 
 
-//import errorHandler from 'gulp-plumber-error-handler';
-
 
 gulp.task('styles:vendor', () => (
     gulp.src([config.src.styles.vendor + '.styl', config.src.styles.additional + '.styl'])
         .pipe(plumber())
+        .pipe(filter([config.src.styles.vendor + '.styl', config.src.styles.additional + '.styl'], {restore: true}))
         .pipe(stylus({
             use: [
                 importIfExist(),
@@ -34,7 +33,9 @@ gulp.task('styles:vendor', () => (
 gulp.task('styles', () => (
     gulp.src(config.src.styles.main + '.styl')
         .pipe(plumber())
-        .pipe(stylus({
+        .pipe(filter(config.src.styles.main + '.styl'))
+
+            .pipe(stylus({
             use: [
                 importIfExist(),
                 rupture(),

@@ -4,7 +4,7 @@ import gulp from 'gulp';
 gulp.task('styles:dependencies', () => (
     runSequence(
         //'sprites',
-        //'icons',
+        'svg',
         'styles:vendor',
         'styles'
     )
@@ -12,12 +12,16 @@ gulp.task('styles:dependencies', () => (
 
 gulp.task('default', () => (
     runSequence(
-        'clean',
+        //'clean',
         [
             'styles:dependencies',
             'jade',
+
+            'bower',
             'scripts',
-            'copy'
+            'copy',
+            'fonts',
+            'jade:index'
         ],
         'server',
         'watch'
@@ -28,7 +32,10 @@ gulp.task('build', () => (
     gulp.start(
         'styles:dependencies',
         'jade',
+        'bower',
         'scripts',
-        'copy'
+        'copy',
+        'fonts',
+        'jade:index'
     )
 ));

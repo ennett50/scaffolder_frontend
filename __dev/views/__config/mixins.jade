@@ -1,0 +1,39 @@
+mixin catalogItem(item, index)
+    div.products-item
+        a(href="#").products-link
+            div.products-title!=item.title
+            div.products-preview
+                img(src="./template/images/examples/product_#{index + 1}.png" alt="#{item.title}" title="#{item.title}")
+        a(href="#").button.__add-basket
+            span.products-price #{item.price}  #[span.rouble a]
+        p #[a(href="#").products-shop=item.shop]
+        p.products-attention=item.info
+
+mixin wrapIn( arr )
+    != arr[0]
+    block
+    != arr[1]
+
+mixin breadcrumbs(brArray, sep, wrap)
+    -if( !sep )
+        -sep = ''
+    -var counter = 0
+    .breadcrumbs
+        -if( wrap === true )
+            -wrap = [ '<div class="breadcrumbs-wrapper wrapper">', '</div>' ]
+        -else
+            -wrap = ['', '']
+        +wrapIn( wrap )
+            a(href="./main.html").breadcrumbs-link Главная
+            !='\n'
+            -each br in brArray
+                -if(br== "") continue
+                span.breadcrumbs-sep!= sep
+                !='\n'
+                -if( (counter + 1) == brArray.length )
+                    span.breadcrumbs-link.__current!= br
+                    !='\n'
+                -else
+                    a(href="#").breadcrumbs-link!= br
+                    !='\n'
+                -counter++

@@ -5,8 +5,10 @@ block title
     title= currentPageTitle
 
 block block-content
-    h2 Заголовок второго уровня
-    h5 Все хорошо! подвис ты чего то!почему? или нет ? видимо да!
-
-
-    -console.log(getData('header.json'));
+    include ./modules/main-slider/main-slider
+    include ./modules/category_main/category_main
+    .wrapper
+        include modules/products/products
+        include modules/news/news
+        include modules/subscribe/subscribe
+        include modules/benefits/benefits

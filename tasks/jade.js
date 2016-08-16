@@ -2,7 +2,6 @@ import gulp from 'gulp';
 import config from '../config';
 import jade from 'gulp-jade';
 import plumber from 'gulp-plumber';
-import cached from 'gulp-cached';
 import getData from 'jade-get-data';
 import inheritance from 'gulp-jade-inheritance';
 import gulpIf from 'gulp-if';
@@ -48,7 +47,7 @@ gulp.task('jade', () => {
 
         gulp.src([config.src.jade])
             .pipe(plumber())
-            .pipe(cached('jade'))
+            //.pipe(cached('jade'))
             .pipe(gulpIf(global.watch, inheritance({basedir: '__dev'})))
             .pipe(filter(file => /__dev[\\\/]views/.test(file.path)))
             .pipe(jade({basedir: '__dev', data}))
@@ -70,4 +69,41 @@ gulp.task('jade', () => {
     });
 
 
-})
+});
+
+
+var getDesc = function (txt) {
+    var dict, key, value;
+    dict = fs.readFileSync('./dictionary.json', 'utf-8');
+    dict = JSON.parse(dict);
+    for (key in dict) {
+        value = dict[key];
+        if (key === txt) {
+            return value;
+        }
+    }
+    return txt;
+};
+gulp.task('jade:index', function () {
+    let dirs = fs.readdirSync('./web/');
+    let files = [];
+    for (let i = 0, len = dirs.length; i < len; i++) {
+        let file = dirs[i];
+        if (file.indexOf('.html') + 1 && !(file.indexOf('index') + 1)) {
+            files.push({
+                file: file.replace('.html', ''),
+                name: getDesc(file)
+            });
+
+        }
+    }
+
+    gulp.src(config.index + '.jade')
+        .pipe(plumber())
+        .pipe(jade({pretty: true, locals: {'pages': files}}))
+        .pipe(gulp.dest(config.dist.jade))
+
+    gulp.src('./__dev/_index/*')
+        .pipe(gulp.dest('./web/_index/'));
+
+});
