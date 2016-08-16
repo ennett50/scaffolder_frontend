@@ -138,3 +138,26 @@ p
 
 .__gray
 	color #686868
+
+blockquote
+	position relative
+	&:before
+		background: #1f77c9
+		content ''
+		display block
+		width 4px
+		height 100%
+		position absolute
+		top 0
+		left -23px
+
+.table-wrapper
+	overflow-x auto
+table
+	position relative
+	border 1px solid #1f77c9
+	margin-bottom 20px
+	background #fff
+	th, td
+		padding 20px
+		border 1px solid #1f77c9

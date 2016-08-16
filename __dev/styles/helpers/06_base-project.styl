@@ -133,6 +133,8 @@ main
 	position relative
 	padding 15px 15px 11px
 	border-box()
+	&[disabled]
+		opacity 0.5
 	&.__logout, &.__login
 		position absolute
 		right 30px
@@ -288,7 +290,7 @@ main
 .popup-info
 	background #fff
 	position fixed
-	z-index 2
+	z-index 5
 	display none
 	padding 30px 40px
 	overflow auto

@@ -8,6 +8,7 @@ block block-content
     +breadcrumbs([currentPageTitle], '>', true)
     .wrapper
         form(action="").form
+            div.form-title.title-3 Заголовок формы
             div.form-item
                 label Поле ввода
                 input(type="text", name="" placeholder="Поле ввода").error
@@ -18,16 +19,52 @@ block block-content
                     option Выберите пункт
                     option Выберите пункт
                     option Выберите пункт
+
             div.form-item
-                label Нестилизованный выпадающий список
-                select.__default
+                label Выпадающий дефолтный список
+                select.error.__default
                     option Выберите пункт
                     option Выберите пункт
                     option Выберите пункт
+                div.error-msg Заполните поле
+            div.form-item
+                label Combobox
+                select(class="js-combobox _default")
+                    | <option value="1">Выбериите город</option>
+                    | <option value="Абаза">Абаза</option>
+                    | <option value="Абакан">Абакан</option>
+                    | <option value="Абдулино">Абдулино</option>
+                    | <option value="Абинск">Абинск</option>
+                    | <option value="Агидель">Агидель</option>
+                    | <option value="Агрыз">Агрыз</option>
+                    | <option value="Адыгейск">Адыгейск</option>
+                    | <option value="Азнакаево">Азнакаево</option>
+                    | <option value="Азов">Азов</option>
+                    | <option value="Ак-Довурак">Ак-Довурак</option>
+                    | <option value="Аксай">Аксай</option>
+                    | <option value="Алагир">Алагир</option>
+
+            div.form-item.error
+                label Combobox
+                select(class="js-combobox _default")
+                    | <option value="1">Выбериите город</option>
+                    | <option value="Абаза">Абаза</option>
+                    | <option value="Абакан">Абакан</option>
+                    | <option value="Абдулино">Абдулино</option>
+                    | <option value="Абинск">Абинск</option>
+                    | <option value="Агидель">Агидель</option>
+                    | <option value="Агрыз">Агрыз</option>
+                    | <option value="Адыгейск">Адыгейск</option>
+                    | <option value="Азнакаево">Азнакаево</option>
+                    | <option value="Азов">Азов</option>
+                    | <option value="Ак-Довурак">Ак-Довурак</option>
+                    | <option value="Аксай">Аксай</option>
+                    | <option value="Алагир">Алагир</option>
+                div.error-msg Заполните поле
             div.form-item
                 label Радиобоксы
                 div.form-item
-                    input(type="radio" id="action-11" name="test")
+                    input(type="radio" id="action-11" name="test" checked="")
                     label(for="action-11") Летний сезон подарков открыт!
                 div.form-item
                     input(type="radio" id="action-22" name="test")
@@ -38,7 +75,7 @@ block block-content
             div.form-item
                 label Чекбоксы
                 div.form-item
-                    input(type="checkbox" id="action-1")
+                    input(type="checkbox" id="action-1" checked="")
                     label(for="action-1") Летний сезон подарков открыт!
                 div.form-item
                     input(type="checkbox" id="action-2")
@@ -47,8 +84,15 @@ block block-content
                     input(type="checkbox" id="action-3")
                     label(for="action-3") 500 р. В нашу пользу!
             div.form-item
+                label Чекбоксы
+                div.form-item.error
+                    input(type="checkbox" id="action-111" checked="")
+                    label(for="action-111") Летний сезон подарков открыт!
+                div.form-item.error
+                    input(type="radio" id="action-222" checked="")
+                    label(for="action-222") В лето вместе с JBL!
+            div.form-item
                 label Текстовый блок
                 textarea
             div.form-item
-                input(type="submit", value="Отправить").button
-                input(type="reset", value="Очистить").button-reset
+                input(type="submit", value="Отправить").button.__big.__wide

@@ -1,6 +1,8 @@
 $(document).ready(() => {
     $('body').on('click', '.js-lk-address-add', function(e){
         e.preventDefault();
+        $('.js-lk-address-item .js-combobox').combobox('destroy');
+
         var $blank = $('.js-lk-address-item-blank');
         $blank.before($blank.clone(false).removeClass('hidden').addClass('js-lk-address-item-new'));
         var $block = $('.js-lk-address-item-new');

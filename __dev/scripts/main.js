@@ -131,4 +131,6 @@ $(document).ready(() => {
         $('.js-compare-wrapper').css('min-width', compareWidth + borderWidth)
     }
 
+
+    $(".js-combobox").combobox();
 });
