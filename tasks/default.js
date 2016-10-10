@@ -18,7 +18,7 @@ gulp.task('default', () => (
             'bower',
             'scripts',
             'styles',
-            'copy',
+            'copy-image',
             'fonts',
             'favicons',
             'index-page'
@@ -34,7 +34,7 @@ gulp.task('build', () => (
         'pug',
         'bower',
         'scripts',
-        'copy',
+        'copy-image',
         'fonts',
         'favicons',
         'index-page'

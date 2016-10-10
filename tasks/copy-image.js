@@ -6,9 +6,13 @@ import plumber from 'gulp-plumber';
 import changed from 'gulp-changed';
 
 
-
-
-gulp.task('copy', () => (
+/**
+ * @name copy-image
+ * @description Копирует изображения для сайта, которые изменились при работе и
+ * оптимизирует их с помощью imagemin пакета
+ * @example gulp copy-image
+ */
+gulp.task('copy-image', () => (
     gulp.src(config.src.images)
         .pipe(plumber())
         .pipe(changed(config.dist.images))

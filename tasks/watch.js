@@ -33,7 +33,7 @@ gulp.task('watch', () => {
         }, 2000)
     }));
 
-    watch(config.src.images, () => runSequence('copy', bs.reload));
+    watch(config.src.images, () => runSequence('copy-image', bs.reload));
 
 
 });

@@ -23,10 +23,8 @@
     "slick-carousel": "^1.6.0"
   },
   "overrides": {
-    "" : {
-      "jquery" : {
-        "main": "dist/jquery.min.js"
-      }
+    "jquery": {
+      "main": "dist/jquery.min.js"
     },
     "jquery-ui": {
       "main": [
@@ -40,14 +38,16 @@
         "dist/html5shiv.min.js"
       ]
     },
-    "slick-carousel" : {
-      "main" : [
+    "slick-carousel": {
+      "main": [
         "slick/slick.min.js",
         "slick/slick.css"
       ]
     },
-    "jquery.maskedinput" :{
-      "main" : ["./dist/jquery.maskedinput.min.js"]
+    "jquery.maskedinput": {
+      "main": [
+        "./dist/jquery.maskedinput.min.js"
+      ]
     }
   }
 }
