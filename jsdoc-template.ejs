@@ -107,9 +107,6 @@ var parseValue = function(s, fileName){
 		file  = file.replace(removeReg, '');
 		var fileName = file.replace('.js', '');
 	?>
-	<script>
-		console.debug( '<?= file ?>', (<?= JSON.stringify(docfiles)?>) );
-	</script>
 	<? if(doc.javadoc.length > 0) { ?>
 		<div class="doc-item-file" id="<?= (fileName ).replace(/[.]/g, '_') ?>">
 			<? addContents( file.replace('.js', ''), doc.javadoc ) ?>
@@ -134,7 +131,7 @@ var parseValue = function(s, fileName){
 							</div>
 						<? } ?>
 
-						
+
 
 						<? if (comment.name) { ?>
 							<div class="doc-item-name">
@@ -183,7 +180,7 @@ var parseValue = function(s, fileName){
 											<? if(param.description){ ?>
 												<p><?= parseValue(param.description || '', fileName) ?></p>
 											<? } ?>
-										</div>  
+										</div>
 									</div>
 								<? }) ?>
 							</div>
@@ -233,7 +230,7 @@ var parseValue = function(s, fileName){
 											<? if(prop.description){ ?>
 												<p><?= parseValue(prop.description || '', fileName) ?></p>
 											<? } ?>
-										</div>  
+										</div>
 									</div>
 								<? }) ?>
 							</div>

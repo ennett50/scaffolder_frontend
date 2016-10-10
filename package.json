@@ -55,6 +55,8 @@
     "gulp-svg-sprites": "^4.0.2",
     "gulp-watch": "^4.3.9",
     "gulp-wrap": "^0.13.0",
+    "gulp-wrap-js": "^0.4.1",
+    "gulp-wrapper": "^1.0.0",
     "gulp.spritesmith": "^6.2.1",
     "imagemin-pngquant": "^5.0.0",
     "jade-get-data": "^1.0.1",

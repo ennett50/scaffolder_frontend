@@ -46,7 +46,7 @@ gulp.task('index-page', function () {
         .pipe(pug({pretty: true, locals: {'pages': files}}))
         .pipe(gulp.dest(config.dist.pug));
 
-    gulp.src(['./__dev/_index/*', '!./__dev/_index/index.pug'])
+    gulp.src(['./__dev/_index/**/*', '!./__dev/_index/index.pug'])
         .pipe(gulp.dest('./web/_index/'));
 
 });

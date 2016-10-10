@@ -72,7 +72,6 @@ a.doc-item-file-title:hover,
 }
 
 .doc-item-description {
-	font-style: italic;
 	margin-bottom: 20px
 }
 .doc-item-name + .doc-item-description {
