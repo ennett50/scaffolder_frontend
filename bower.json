@@ -1,5 +1,5 @@
 {
-  "name": "bitrix_scaffolder",
+  "name": "frontend_scaffolder",
   "description": "",
   "main": "",
   "authors": [
@@ -15,14 +15,19 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^1.12.*",
+    "jquery": "2.2.4",
     "jquery.maskedinput": "^1.4.1",
-    "jquery-ui": "1.11.4",
+    "jquery-ui": "1.12.1",
     "html5shiv": "^3.7.3",
     "css3-mediaqueries-js": "^1.0.0",
     "slick-carousel": "^1.6.0"
   },
   "overrides": {
+    "" : {
+      "jquery" : {
+        "main": "dist/jquery.min.js"
+      }
+    },
     "jquery-ui": {
       "main": [
         "jquery-ui.js",

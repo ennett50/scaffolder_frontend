@@ -1,0 +1,44 @@
+extends ./modules/layout/layout
+
+block vars
+    -var currentPageTitle = ["UI"]
+    -var hideHeader = true
+    -var hideFooter = true
+block block-content
+
+    +breadcrumbs([currentPageTitle], '>', true)
+    .wrapper
+        h3 Кнопки
+        button.button Стандартная кнопка
+        button(disabled="").button Стандартная кнопка [disabled]
+        button.button.__big Большая кнопка
+        button.button.__wide Широкая кнопка
+        button.button.__add-basket Добавления в корзину
+        button.button-inverse Кнопка с обводкой
+        button.button-reset Кнопка сброса
+
+        br
+        br
+        h3 Табы
+        div(data-tab-name="test-tab").tab.clearfix.js-tabs
+            a(href="#test-tab-1").tab-item.__active Вкладка 1
+            a(href="#test-tab-2").tab-item Вкладка 2
+            a(href="#test-tab-3").tab-item Вкладка 3
+
+        div(data-tab-content="test-tab").tab-content
+            div(class="tab-content-item" data-tab="test-tab-1")
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            div(class="tab-content-item" data-tab="test-tab-2").__hidden
+                p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            div(class="tab-content-item" data-tab="test-tab-3").__hidden
+                p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+        h3 Две вкладки табов
+        div(data-tab-name="test-tab2").tab.clearfix.js-tabs.__double
+            a(href="#test-tab-11").tab-item.__active Вкладка 1
+            a(href="#test-tab-22").tab-item Вкладка 2
+
+        div(data-tab-content="test-tab2").tab-content
+            div(class="tab-content-item" data-tab="test-tab-11")
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            div(class="tab-content-item" data-tab="test-tab-22").__hidden
+                p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?

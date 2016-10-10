@@ -7,6 +7,10 @@ const { PORT, OPEN, NODE_ENV, TUNNEL } = process.env;
 
 gulp.task('server', () => (
     bs.init({
+        watchOptions: {
+            ignoreInitial: true,
+            ignored: '*.txt'
+        },
         files: ['web/**/**/**/*'],
         open: !!OPEN,
         reloadOnRestart: true,
@@ -16,11 +20,19 @@ gulp.task('server', () => (
                 match: /<\/body>/i
             }
         },
+        ghostMode: {
+            clicks: false,
+            forms: false,
+            scroll: true
+        },
         server: {
             baseDir: 'web',
+            index: "index.html",
             directory: true,
             middleware: [debuga()]
         },
+        notify: true,
+        startPath: "index.html",
         tunnel: !!TUNNEL
     })
 ));

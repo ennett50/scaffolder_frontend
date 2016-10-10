@@ -16,9 +16,13 @@ let pathFolders = {
             dev: ['__dev/views/**/**/*.styl', '__dev/styles/helpers/**']
         },
         script : ['./__dev/scripts/*.js', './__dev/views/**/**/*.js', '!./__dev/scripts/libs/**/*.js', '!./__dev/scripts/helpers/**/*.js'],
-        jade: './__dev/views/*.jade',
-        jade_modules : './__dev/views/modules/**/*.jade',
+        pug: './__dev/views/*.pug',
+        pug_modules : './__dev/views/modules/**/*.pug',
         fonts: path.join(root, 'fonts', '**', '*'),
+        sprite : {
+            "svg" : "./__dev/sprites/svg/*.svg",
+            "png" : "./__dev/sprites/png/*.png"
+        }
     },
     dist: {
         script: {
@@ -30,7 +34,7 @@ let pathFolders = {
             vendor: path.join(template, 'styles'),
             main: template,
         },
-        jade: web,
+        pug: web,
         fonts: path.join(template, 'styles', 'fonts'),
     }
 };

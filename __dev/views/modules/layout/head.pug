@@ -1,0 +1,35 @@
+head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1")
+        //-meta(name="viewport" content="user-scalable=yes")
+    block title
+        title!= ( currentPageTitle  ? currentPageTitle : 'Заголовок страницы' )
+
+    link(rel="icon" type="image/png" sizes="32x32" href="template/favicons/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="96x96" href="template/favicons/favicon-96x96.png")
+    link(rel="icon" type="image/png" sizes="230x230" href="template/favicons/favicon-230x230.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="template/favicons/favicon-16x16.png")
+    link(rel="shortcut icon" href="web/favicons/favicon.ico")
+
+
+    // [ START ] Стили библиотек
+    -for(var i = 0 ; i < stylesLibs.length; i++)
+        link(rel="stylesheet" type="text/css" href=`${STATIC_DIR}${stylesLibs[i]}`)
+
+    link(rel="stylesheet", type="text/css", href=`${STATIC_DIR}styles/vendor.css`)
+    // [  END  ] Стили библиотек
+
+    // [ START ] Стили проекта
+    link(rel="stylesheet", type="text/css", href=`${STATIC_DIR}template_styles.css`)
+    link(rel="stylesheet", type="text/css", href=`${STATIC_DIR}styles/additional.css`)
+    // [  END  ] Стили проекта
+
+    // [ START ] Переменные bitrix
+    script.
+        window.App = window.App || {};
+        App.BX = {
+            TEMPLATE_PATH: './template/'
+        }
+    // [  END  ] Переменные bitrix
+
+

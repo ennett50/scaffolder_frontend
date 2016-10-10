@@ -1,0 +1,13 @@
+{
+    "disallowAttributeConcatenation" : true,
+    "disallowAttributeTemplateString" : "all",
+    "disallowBlockExpansion" : true,
+    "disallowClassLiteralsBeforeAttributes" : true,
+    "disallowHtmlText" : true,
+    "disallowLegacyMixinCall" : true,
+    "disallowMultipleLineBreaks" : true,
+    "disallowSpaceAfterCodeOperator" : true,
+    "disallowSpacesInsideAttributeBrackets" : true,
+    "disallowTemplateString" : true,
+    "requireLowerCaseTags" : true
+}
