@@ -3,11 +3,19 @@ import config from '../config'
 import concat from 'gulp-concat';
 import plumber from 'gulp-plumber';
 import markdox from 'gulp-markdox';
+import documentation from 'gulp-documentation';
 import wrap from 'gulp-wrapper';
 import fs from 'fs';
 
 gulp.task('doc-tasks', () => (
 	gulp.src(config.doc.gulp.from)
+		// .pipe(documentation({
+		// 	shallow: true,
+		// 	name : "test",
+		// 	//filename : "--dev--doc-task.html",
+		// 	format: 'html' }))
+
+
 		.pipe(plumber())
 		.pipe(markdox({
 			template: config.doc.gulp.template
