@@ -8,8 +8,10 @@ import fs from 'fs';
  * @name getDesc
  * @param fileName - name of file in directory ./web
  * @returns {Array|Object}
+ * @author ennet
+ * @example getDesc(fileName)
  */
-let getDesc = function (fileName) {
+function getDesc(fileName) {
     let dict, key, value;
     dict = fs.readFileSync('./dictionary.json', 'utf-8');
     dict = JSON.parse(dict);
@@ -20,7 +22,7 @@ let getDesc = function (fileName) {
         }
     }
     return fileName;
-};
+}
 
 
 gulp.task('index-page', function () {

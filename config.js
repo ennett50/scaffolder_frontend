@@ -39,7 +39,8 @@ let pathFolders = {
     },
     doc: {
         gulp: {
-            from: "./tasks/*.js",
+            from: './__dev/scripts/*.js',
+            from2: './tasks/**/*.js',
             to: "./web",
             template: "jsdoc-template.ejs",
             //scripts: template('scripts')
