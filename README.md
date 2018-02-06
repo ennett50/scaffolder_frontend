@@ -1,109 +1,199 @@
-# scaffolder_frontend
+# Builder Light
 
+## Технические характеристики:
 
-# [FCOP] Fronend COllector Projects ^_^
+- nodejs 8.9.1
+- pug, stylus
+- gulp 3.9.1
 
-## Запуск
-### Для работы необходимо установить:
-* <a href="https://nodejs.org/en/" target="_blank">Node.js</a>
-
-### Первоначальная инициализация
+Глобальные зависимости:
 ```
 $ npm i -g gulp
+$ npm i -g bower
 ```
 
 
-### Перед началом проекта
+## Перед началом проекта
 ```
-$ npm i
-```
-
-### Запуск
-```
-$ gulp [параметры запуска]
+$ npm install
+$ bower install
 ```
 
-##### Доступные параметры
-* "--debug-this" - вывод дополнительной информации в консоль
-* "--auto-snapshot [количество секунд]" - автоматическое создание дампа ресурсов nodejs, параметр секунд не обязателен (по умолчанию 20)
-
-
-
-
-
-
-
-## Структура
-
-
-
-### \_\_\_gulp
+## Запуск
+```
+$ npm start // or gulp [params]
 
 ```
-├─── common      # файлы с функциями подключающие автоматически
-├─── debug       # файлы отладки
-└─── tasks       # gulp task's
+
+##Структура рабочей дирректории
+
+```
+├─── dist/
+├──────_ index/           # папка с файлами для разводящей страницы со списком страниц
+├────── data/              # папка с json файлами для шаблонов
+└────── fonts/             # папка со шрифтами проекта и их стилями
+       ├─── rouble/
+       └─── ...
+└─── images/               # папка с картинками проекта
+     ├─── examples/
+     ├─── icons/ 
+     ├─── logo.png
+     └─── ...
+└─── scripts/              # папка со скриптами
+     ├─── libs/              # папка для установки сторонних библиотек через bower
+     ├─── main.js
+     └─── ...    
+└─── sprites                # папка для исходных картинок для спрайтов
+     ├─── png/
+     └─── svg/
+└─── styles/                # папка со стилями проекта
+     └─── helpers/         # папка с дефолтными стилями проекта
+          ├─── 00_normalize.styl      # сброс стилей
+          ├─── 01_variables.styl       # переменные
+          ├─── 02_mixins.styl           # миксины проекта
+          ├─── 03_fonts.styl             # настройка шрифтов
+          ├─── 04_text.styl               # тестовые стили
+          ├─── 05_form.styl                             # стили для элементов формы
+          ├─── 06_base-project.styl                  # базовые стили проекта
+          ├─── sprite.template.mustache         # шаблон для генерации спрайтов из png
+          └─── ...
+     ├─── additional.styl                 # пустой файл, стили для вставки програмистами
+     ├─── template_styles.styl        # сборка всех стилей проекта
+     └─── vendor.styl                     # сборка базовых стилей проекта
+└─── views/
+     └─── __config/                        # папка с настройками проекта
+         ├─── mixins.pug                 # миксины проекта
+         └─── variables.pug             # переменные
+     └─── modules                         # папка с модулями проекта, подключается через include
+          └─── name_module
+               ├─── name_module.pug 
+               ├─── name_module.styl
+               └─── name_module.js          
+          └─── ...            
+     ├─── main.pug 
+     └─── ...
+     
+```
+## Особенности сборщика
+### Работа с json файлами в шаблонах pug
+
+В папку `data` в рабочей дирректории помещает json файлы для работы в шабонах.
+Вызов данных в шаблоне идет с помощью функции `getData(nameJsonFail)`
+Пример:
+
+`menu.json`
+
+```json
+[
+  {
+    "name": "О нас",
+    "link" : "#"
+  },
+  {
+    "name": "Новости",
+    "link" : "#"
+  },
+  {
+    "name": "Акции",
+    "link" : "#"
+  },
+  {
+    "name": "Услуги",
+    "link" : "#"
+  },
+  {
+    "name": "Контакты",
+    "link" : "#"
+  }
+]
 ```
 
-базовая структура common файла:
+`menu.pug`
 
-```javasript
-module.exports = function($, _){
-    return function () {
-        ...
-    }
+```jade
+nav.menu
+   each item in getData('menu')
+       a(href=item.link).menu__item!=item.name
+```
+
+###Установка сторонних библиотек
+Сторонние библиотеки ставятся через `bower` в папку `scripts/libs` рабочей дирректории
+```
+$ bower install jquery --save
+```
+или через `bower.json`
+
+Если внутри исходного пакета в `bower.json` написаны неверные пути в настройках `main` или нужно вытягивать из пакета только необходимые файлы, можно прописать в файле проекта `bower.json` в пункте `overrides`:
+
+```
+...
+"overrides": {
+    "jquery-ui": {
+      "main": [
+        "jquery-ui.js",
+        "themes/base/jquery-ui.css",
+        "themes/base/images/**/*"
+      ]
+    },
+    "html5shiv": {
+      "main": [
+        "dist/html5shiv.min.js"
+      ]
+    },
+    ...
+  }
+...
+``` 
+###Работа с png спрайтами
+Необходимые иконки должны быть сохранены в папку `sprite/png` рабочей дирректории. Иконки автоматом компилируеются в один файл `sprite.png` в рабочую дирректорию папки `images`.
+
+Параметры иконки (размеры, координаты и т.п.) формируются в файл `styles/helpers/07_sprite.styl` рабочей дирректории. 
+
+В стилях вызвать иконку с параметрами можно через миксин `sprite($s-nameIcon)`. Пример: 
+
+`07_sprite.styl`
+
+```stylus
+$s-phone = 0px 0px 0px 0px 24px 24px 24px 24px 'sprite.png';
+```
+
+`phone.styl`
+
+```stylus
+.phone
+    font-weight bold
+    &:before
+        content ''
+        display inline-block
+        vertical-align middle
+        sprite($s-phone)
+        margin-right 5px
+```
+Полученный `css`: 
+
+```css
+.phone {
+  font-weight: bold;
+}
+
+.phone:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url("./images/sprite.png");
+  background-position: 0px 0px;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
 }
 ```
 
-базовая структура tasks файла:
-
-```javasript
-module.exports = function(gulp, $, _){
-    return function () { // функция которая вызывается из gulp task'а
-        ...
-    }
-}
+###Документация javascript
+Если в `js` файлах есть документация, написанная по стандартам `jsDoc` , то ее можно скомпилировать с помощью команды:
+``` 
+$ npm run docs
 ```
-` gulp ` - gulp объект, ` $ ` - common функции, ` _ ` - параметры сборщика
-
-
-
-***
-
-
-
-### __dev
-
-*примечание:*
-если содержимое папки копируется в web директорию, то будет содержать: `=> имя папки \` - относительно папки web, `=> \ имя папки \` - относительно корня проекта. `{ }` - список игнорируемых файлов
-
-```
-├─── ___temp                                        # содержит временные файлы сборщика
-├─── _index {index.jade} => _index\                 # содержит необходимые файлы для index.html
-└─── images => template\images\                     # папка с картинками, содержит только: логотип проекта, preloader'ы
-     ├─── elements                                  # картинки элементов страницы (фон, уголки, маски, и т.п.)
-     ├─── example                                   # временные картинки, которые используются *только в вёрстке*
-     ├─── icons                                     # только иконки
-     └─── ...                                       # остальные на усмотрение разработчика
-├─── libs => template\libs\                         # библиотеки
-└─── scripts
-     ├─── vendors => template\scripts\vendors.js    # js скрипты объединяются и сжимаются, лучше использовать libs
-     └─── coffee => template\scripts\               # список файлов передается в jade, для автоматического подключения.
-                                                        # Подключаются в алфавитном порядке (по названию coffee файлов):
-                                                        # сначала идут все из **`base`**, затем из **`project`**.
-                                                        # Из названий уберается порядковый номер формата: `число_`
-└─── styles
-     ├─── base => template\styles\
-     ├─── vendors => template\styles\vendors.css
-     └─── stylus
-          ├─── global                               # подключается перед stylus\base\ и перед stylus\project\
-          ├─── base => \__dev\styles\vendors\00_base.css
-          └─── project => template\styles\production.css
-└─── jade                                           # страницы
-     ├─── layouts                                   # шаблон, header and footer
-     ├─── modules                                   # модули
-     └─── variables                                 # json файлы, которые подключаются на jade страницах, имена переменных == именам файлов
-```
+Документация будет помещена в скомпилирвоанную дирректорию проекта `dist`.
 
 
 
@@ -112,4 +202,5 @@ module.exports = function(gulp, $, _){
 
 
 
-## Jade
+
+

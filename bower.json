@@ -1,10 +1,7 @@
 {
-  "name": "frontend_scaffolder",
+  "name": "builderLight",
   "description": "",
   "main": "",
-  "authors": [
-    "ennet <ennet@mail.ru>"
-  ],
   "license": "ISC",
   "homepage": "",
   "ignore": [

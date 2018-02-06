@@ -4,7 +4,7 @@ import gulp from 'gulp';
 gulp.task('styles:dependencies', () => (
 	runSequence(
 		'sprite',
-		'svg-sprite',
+		//'svg-sprite',
 	)
 ));
 
@@ -23,19 +23,5 @@ gulp.task('default', () => (
 		],
 		'server',
 		'watch'
-	)
-));
-
-gulp.task('build', () => (
-	gulp.start(
-		'pug',
-		'bower',
-		'scripts',
-		'styles:vendor',
-		'styles',
-		'copy-image',
-		'fonts',
-		'favicons',
-		'index-page'
 	)
 ));

@@ -1,15 +1,3 @@
 {
-  "main.html": "Главная страница",
-  "item.html": "Карточка товара",
-  "catalog.html": "Каталог",
-  "compare.html": "Сравнение",
-  "contacts-info.html": "Адреса магазинов",
-  "private-area.html": "Личный кабинет",
-  "recovery-password.html": "Восстановление пароля",
-  "shoping-cart.html": "Корзина",
-  "sign-in.html": "Авторизация",
-  "sign-up.html": "Регистрация",
-  "special-offer.html": "Акции",
-  "special-offer-detail.html": "Акции - детальная"
-
+  "main.html": "Главная страница"
 }
