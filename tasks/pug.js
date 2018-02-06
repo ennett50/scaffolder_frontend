@@ -13,7 +13,12 @@ import path from 'path';
 import fs from 'fs';
 import pugLinter from 'gulp-pug-linter';
 
-
+/**
+ * @name  filterTypeFile
+ * @param extension - расширение, по которым будут фильтроваться файлы
+ * @returns {Array}
+ * @example filterTypeFile(filterTypeFile)
+ */
 function filterTypeFile(extension) {
     return mainBowerFiles({
         includeDev: false,
@@ -24,6 +29,13 @@ function filterTypeFile(extension) {
         .map(fileName => fileName.substr(fileName.indexOf('libs')));
 }
 
+/**
+ * @name pug
+ * @description Генерирует html шаблоны.
+ * Через locals передаются данные в шаблон (список библиотек, стилей, отдельных скриптов)
+ * и json-данные из папка data с помощью функции getData(nameJsonFile)
+ * @example gulp pug
+ */
 gulp.task('pug', () => {
 
     let scriptsLibs = filterTypeFile('.js');
@@ -34,7 +46,8 @@ gulp.task('pug', () => {
 
     fs.readdir('__dev/views/modules/', function (err, items) {
         for (var i = 0; i < items.length; i++) {
-            var fileJs = fs.readdirSync('__dev/views/modules/' + items[i]).filter(fileName => path.extname(fileName) === '.js');
+            var fileJs = fs.readdirSync('__dev/views/modules/' + items[i])
+                .filter(fileName => path.extname(fileName) === '.js');
             if (fileJs.length) {
                 for (var j = 0; j < fileJs.length; j++) {
                     scriptsModules.push(fileJs[j])
@@ -57,7 +70,6 @@ gulp.task('pug', () => {
             .pipe(pugLinter())
             .pipe(pugLinter.reporter())
             .pipe(plumber())
-            //.pipe(cached('jade'))
             .pipe(gulpIf(global.watch, inheritance({basedir: '/__dev/'})))
             .pipe(filter(file => /__dev[\\\/]views/.test(file.path)))
             .pipe(pug({basedir: '__dev', data}))

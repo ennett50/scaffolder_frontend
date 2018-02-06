@@ -2,10 +2,7 @@ extends ./modules/layout/layout
 
 block vars
     -var currentPageTitle = ["UI"]
-    -var hideHeader = true
-    -var hideFooter = true
 block block-content
-    +breadcrumbs([currentPageTitle], '>', true)
     .wrapper
         form(action="").form
             div.form-title.title-3 Заголовок формы

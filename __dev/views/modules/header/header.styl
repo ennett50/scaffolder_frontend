@@ -1,67 +1,12 @@
 .header
 	background #fff
-	padding 19px 40px 25px
-	position relative
-	+below($rebuild)
-		padding 5px 15px
-	&-menu
-		float left
-		cursor pointer
-		max-width 50px
-		margin-right 50px
-		margin-top 17px
-		+below($rebuild)
-			margin 10px 5px 0 0
-			max-width 25px
-	&-logo
-		display block
-		text-decoration none
-		max-width 230px
-		position absolute
-		top 21px
-		left 140px
-		+below($default)
-			max-width 175px
-			top 30px
-		+below($rebuild)
-			left 65px
-			margin-top -22px
-			width 125px
-
-	&-btns
-		margin-top 7px
-		float right
-		position relative
-		+below($rebuild)
-			margin-top 0
-		&-search
-			display inline-block
-			vertical-align middle
-			margin-right 20px
-			cursor pointer
-			max-width 46px
-			margin-top 5px
-			+below($rebuild)
-				width 24px
-				margin 8px 15px 0 0
-		&-basket
-			display inline-block
-			vertical-align middle
-			cursor pointer
-			font-size 35px
-			margin-right 0
-			+below($rebuild)
-				font-size 14px
-			&-icon
-				display inline-block
-				vertical-align middle
-				max-width 46px
-				margin-right 2px
-				+below($rebuild)
-					width 24px
-				img
-					display block
-			&-count
-				display inline-block
-				vertical-align middle
-				padding-top 4px
+	padding 10px
+	&__wrapper
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+		align-items center
+	&__logo
+		max-width 150px
+	&__menu
+		flex-grow 1

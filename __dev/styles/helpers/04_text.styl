@@ -1,147 +1,7 @@
-h1, .title-1,
-h2, .title-2,
-h3, .title-3,
-h4, .title-4,
-h5, .title-5,
-h6, .title-6
-	color $FONT_COLOR
-	font-weight 600
-	margin 0
-	font-MyriadPro()
-	line-height normal
-h1, .title-1
-	font-size 40px
-	line-height 42px
-	+below($rebuild)
-		line-height 26px
-		font-size 26px
-
-h2, .title-2
-	font-size 36px
-	+below($rebuild)
-		font-size 22px
-
-h3, .title-3
-	font-size 30px
-	margin-bottom 30px
-	+below($rebuild)
-		font-size 20px
-		margin-bottom 20px
-
-h4, .title-4
-	font-weight normal
-	font-size 28px
-	+below($rebuild)
-		font-size 20px
-
-h5, .title-5
-	font-size 22px
-	+below($rebuild)
-		font-size 16px
-
-h6, .title-6
-	font-size 18px
-	+below($rebuild)
-		font-size 14px
-
-.table
-	display table
-	width 100%
-	table-layout fixed
-
-	&-cell
-		display table-cell
-		vertical-align top
-
-	&-row,
-	&-rows
-		display table-row
-
-	&-column,
-	&-columns
-		display table-column
-
-
-
-.clear,
-.clearfix
-	clear()
-
-.hidden
-	display none !important
-
-.align-top
-	vertical-align top !important
-
-.align-middle
-	vertical-align middle !important
-
-.align-bottom
-	vertical-align bottom !important
-
-.align-left
-	text-align left !important
-
-.align-right
-	text-align right !important
-
-.align-center
-	text-align center !important
-
-.__full-width
-	width 100% !important
-
-.trans
-	trans()
-
-.no-trans
-	transition none !important
-
-.bold
-	font-weight bold
-
-.italic
-	font-style italic
-
-.underline
-	text-decoration underline
-
-.uppercase,
-.upper
-	text-transform uppercase
-
-.lowercase,
-.lower
-	text-transform lowercase
-
-.normalcase
-	text-transform none
-
-.left,
-.to-left
-	float left
-	left 0
-
-.right,
-.to-right
-	float right
-	right 0
-
-.nowrap
-	white-space nowrap
-
-p
-	margin 0 0 20px
-	+below($rebuild)
-		margin 0 0 10px
-
-.__gray
-	color #686868
-
 blockquote
 	position relative
 	&:before
-		background: #1f77c9
+		background #1f77c9
 		content ''
 		display block
 		width 4px
@@ -152,6 +12,7 @@ blockquote
 
 .table-wrapper
 	overflow-x auto
+
 table
 	position relative
 	border 1px solid #1f77c9
@@ -160,3 +21,6 @@ table
 	th, td
 		padding 20px
 		border 1px solid #1f77c9
+
+.hidden
+	display none

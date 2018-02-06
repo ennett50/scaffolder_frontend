@@ -1,7 +1,4 @@
 {
-	// do not specify reporter here
-	// because it breaks SublimeLinter-contrib-stylint
-	// use gulp task style:lint instead
 	"blocks": "never",
 	"brackets": "never",
 	"colons": "never",
@@ -30,10 +27,9 @@
 	"semicolons": "never",
 	"sortOrder": false,
 	"stackedProperties": "never",
-	"stackedProperties": "never",
 	// "trailingWhitespace": "never", // bug: throw error when there are spaces after rule before comment
 	"universal": "never",
-	"valid": true, // discuss 8
+	"valid": true,
 	"mixins": ["size", "margin-x", "margin-y", "padding-x", "padding-y"],
 	"zeroUnits": "never",
 	"zIndexNormalize": false

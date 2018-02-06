@@ -11,7 +11,7 @@ gulp.task('server', () => (
             ignoreInitial: true,
             ignored: '*.txt'
         },
-        files: ['web/**/**/**/*'],
+        files: ['dist/**/**/**/*'],
         open: !!OPEN,
         reloadOnRestart: true,
         port: PORT || 3000,
@@ -26,7 +26,7 @@ gulp.task('server', () => (
             scroll: true
         },
         server: {
-            baseDir: 'web',
+            baseDir: 'dist',
             index: "index.html",
             directory: true,
             middleware: [debuga()]

@@ -1,10 +1,15 @@
 import gulp from 'gulp';
 import spritesmith from 'gulp.spritesmith';
-import plumber from 'gulp-plumber';
 import config from '../config';
 
 
-
+/**
+ * @name sprite
+ * @description  Генерирует png-спрайт из директории sprites/png.
+ * Координаты, размеры и т.п. записываются в файл 07_sprite.styl через шаблон sprite.template.mustache
+ * В stylus вызывается через миксин
+ * @example gulp sprite
+ */
 gulp.task('sprite', () => {
     let spriteData = gulp.src(config.src.sprite.png)
         .pipe(spritesmith({

@@ -6,9 +6,8 @@ import fs from 'fs';
 
 /**
  * @name getDesc
- * @param fileName - name of file in directory ./web
+ * @param fileName - имя файла в диреткории ./dist
  * @returns {Array|Object}
- * @author ennet
  * @example getDesc(fileName)
  */
 function getDesc(fileName) {
@@ -24,13 +23,19 @@ function getDesc(fileName) {
     return fileName;
 }
 
-
+/**
+ * @name index-page
+ * @description генерация разводящей страницы,
+ * где будет отображены все макеты верстки.
+ * За именование файлов в спике отвечает dictionary.json
+ * @example gulp index-page
+ */
 gulp.task('index-page', function () {
-    let dirOutput = './web/';
+    let dirOutput = config.public;
     if (!fs.existsSync(dirOutput)){
         fs.mkdirSync(dirOutput);
     }
-    let dirs = fs.readdirSync('./web/');
+    let dirs = fs.readdirSync(dirOutput);
     let files = [];
     for (let i = 0, len = dirs.length; i < len; i++) {
         let file = dirs[i];
@@ -42,13 +47,12 @@ gulp.task('index-page', function () {
 
         }
     }
-
     gulp.src(config.index + '.pug')
         .pipe(plumber())
         .pipe(pug({pretty: true, locals: {'pages': files}}))
         .pipe(gulp.dest(config.dist.pug));
 
-    gulp.src(['./__dev/_index/**/*', '!./__dev/_index/index.pug'])
-        .pipe(gulp.dest('./web/_index/'));
+    gulp.src(config.dist.indexPage.from)
+        .pipe(gulp.dest(config.dist.indexPage.to));
 
 });

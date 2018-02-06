@@ -6,7 +6,6 @@ block vars
     -var hideHeader = true
     -var hideFooter = true
 block block-content
-    +breadcrumbs([currentPageTitle], '>', true)
     .wrapper
         for t in [1,2,3,4,5,6]
             !='<h' + t + '>Заголовок тег ' + t + ' [ h' + t + ' || class="title-' + t + '" ]</h' + t + '>'

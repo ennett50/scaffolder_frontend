@@ -11,116 +11,24 @@ textarea,
 [type="month"],
 [type="week"],
 select,
-.ui-combobox-button .ui-autocomplete-input
 	display block
 	width 100%
 	border-radius 0
-	border-box()
+	box-sizing border-box
 	background #fff
 	font-size 36px
-	padding 25px 15px 21px
-	color $FONT_COLOR
-	font-MyriadPro()
-	font-weight normal
-	border 3px solid $GREY
-	+below($rebuild)
-		font-size 24px
-		padding 10px 12px
-	&.error
-		border-color: $ERROR
-	&.__small
-		font-size 24px
-		padding 10px 15px 9px
-		border-width 1px
-		+below($rebuild)
-			font-size 18px
-			padding 5px 10px
-	&.__big
-		font-size 36px
-		padding 25px 15px 21px
-		+below($rebuild)
-			font-size 24px
-			padding 10px 12px
-.ui-combobox-button .ui-autocomplete-input
-	padding-right 55px
-	+below($rebuild)
-		padding-right 50px
-.ui-combobox-button
-	color $FONT_COLOR
-	font-weight: normal;
-	position: relative;
-.ui-combobox-button .custom-combobox-toggle
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	width: 50px;
-	height: auto;
-	+below($rebuild)
-		width 40px
-
-	&:after
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		margin: auto;
-		display: block;
-		background: url("../images/icons/detail-arrow-small-open.png") no-repeat 0 0;
-		width: 22px;
-		height: 12px;
-
-.custom-select-wrap
-	background: url("../images/icons/detail-arrow-small-open.png") no-repeat 96% 50% #fff;
-	select
-		background none
-		-webkit-appearance: none;
-		-moz-appearance:none;
-		appearance:none;
-.ui-widget-content
-	border 3px solid $GREY
-	color #000
-	border-top 0
-.ui-menu .ui-menu-item
 	padding 15px
-select
-	line-height 95px
-	height 95px
-	padding-top 0
-	padding-bottom 0
-	background none
-	padding-right 55px
-	+below($rebuild)
-		padding-top 0
-		padding-right 45px
-		padding-bottom 0
-		line-height 55px
-		height 55px
-select:not('.__default')
-	-webkit-appearance: none;
-	-moz-appearance:none;
-	appearance:none;
-.req
-	font-size 12px
-	color $ERROR
-	position relative
-	top -5px
-
+	color $FONT_COLOR
+	fontBase()
+	font-weight normal
+	border 1px solid #000
+	&.error
+		border-color $ERROR
 .form
 	position relative
-	&-separate
-		height 1px
-		background $LIGHT_GREY
-		margin 25px -30px
-		+below($rebuild)
-			margin 12px -15px
-	&-item
-		margin-bottom 30px
-		+below($rebuild)
-			margin-bottom 15px
+
+	&__item
+		margin-bottom 20px
 		&.error
 			[type="text"],
 			textarea,
@@ -134,132 +42,15 @@ select:not('.__default')
 			[type="tel"],
 			[type="month"],
 			[type="week"],
-			select,
-			.ui-combobox-button .ui-autocomplete-input
-				border-color: $ERROR
-		&.__third
-			margin-left -30px
-			margin-right -30px
-			+below($rebuild)
-				margin-left -15px
-				margin-right -15px
-		&-third
-			float left
-			width: 33.33%;
-			padding: 0 30px;
-			+below($rebuild)
-				display: block;
-				float: none;
-				width: 100%;
-				padding: 0 15px;
-				& + &
-					margin-top 15px
-		&-bottom
-			display block
-			margin 40px -30px -30px -30px
-			border-top 1px solid $LIGHT_GREY
-			padding 15px
-			text-align center
-			font-size 36px
-			+below($rebuild)
-				margin 20px -15px -15px
-				font-size 24px
-		&-column
-			width 210px
-			margin-left 26px
-			&first-of-type
-				margin-left 0
-	&-attention
-		color #969696
-		font-size 12px
-		margin-bottom 15px
-		margin-top 7px
-		font-weight 300
+			select
+				border-color $ERROR
+	&__title
 		text-align left
-		padding-left 15px
-	textarea
-		height 300px
-		resize vertical
-		&.__full-wide
-			display: block;
-			padding 30px
-			border: 1px solid #cfcfcf;
-			border-top: 0;
-			border-radius: 0 0 5px 5px;
-			+below($rebuild)
-				padding 15px
-				height 185px
-	label
-		text-align left
-		color #000
 		display block
 		margin-bottom 5px
-		font-size 30px
-		font-weight 600
-		+below($rebuild)
-			font-size 22px
-
-
-
-
 .error-msg
 	margin-top 10px
 	display inline-block
-	color #db5f46
+	color $ERROR
 	text-align left
 
-[type="radio"],
-[type="checkbox"]
-	display: none;
-	& + label
-		position relative
-		color inherit
-		font-size 28px
-		font-weight normal
-		+below($rebuild)
-			font-size 16px
-		&:before
-			margin-right 15px
-			content ''
-			display inline-block
-			vertical-align middle
-			top -2px
-			position relative
-			width 50px
-			height 50px
-			border-radius 3px
-			background-color #fff
-			border 1px solid $BLUE
-			+below($rebuild)
-				width 25px
-				height 25px
-				margin-right 8px
-
-[type="radio"]
-	& + label
-
-		&:before
-			border-radius 50%
-	&:checked + label:before
-		content: "\2022";
-		color: $BLUE;
-		font-size: 80px;
-		text-align: center;
-		line-height 50px
-		+below($rebuild)
-			font-size 40px
-			line-height 25px
-
-
-input[type=checkbox]
-	&:checked + label:before
-		content: "";
-		background-image url("../images/icons/checkbox.png")
-		background-position 50% 50%
-		background-repeat no-repeat
-		color: $BLUE;
-		+below($rebuild)
-			content: "\2713";
-			background-image none
-			line-height 25px
-			text-align center

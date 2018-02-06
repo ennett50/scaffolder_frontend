@@ -3,10 +3,10 @@
     "node_modules/**/*"
   ],
   "presets": [
-    "es2015",
-    "stage-0"
+    "env"
   ],
   "plugins": [
     "transform-runtime"
-  ]
+  ],
+  "retainLines": true
 }

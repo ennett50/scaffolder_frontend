@@ -1,7 +1,6 @@
 import gulp from 'gulp';
 import rm from 'gulp-clean';
 import config from '../config'
-import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 
 /**

@@ -12,8 +12,6 @@ html(lang="ru").no-js
 
             include ../footer/footer
 
-
-            //- TODO придумать как обойти вариант при полифилах с бовера
             // [ START ] Скрипты библиотек
             -for(var i = 0 ; i < scriptsLibs.length; i++)
                 -if (scriptsLibs[i] == 'libs/html5shiv/dist/html5shiv.min.js' || scriptsLibs[i] == 'libs/css3-mediaqueries-js/css3-mediaqueries.js') continue;

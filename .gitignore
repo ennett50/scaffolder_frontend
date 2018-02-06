@@ -1,9 +1,10 @@
 .idea/
 node_modules/
-web/
+dist/
 npm-debug.log
 __dev/scripts/libs
 __dev/styles/helpers/07_sprite.styl
 __dev/styles/helpers/08_svg-sprite.styl
 __dev/images/sprite-icons.svg
 __dev/images/sprite.png
+package-lock.json
