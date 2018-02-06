@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "start": "bower install && gulp --debug",
-    "doc" : "gulp doc-tasks"
+    "doc": "gulp doc-tasks"
   },
   "engines": {
     "node": ">=8.0.0",
