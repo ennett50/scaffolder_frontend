@@ -25,7 +25,7 @@ $ npm start // or gulp [params]
 
 ```
 
-##Структура рабочей дирректории
+## Структура рабочей дирректории
 
 ```
 ├─── dist/
@@ -185,6 +185,34 @@ $s-phone = 0px 0px 0px 0px 24px 24px 24px 24px 'sprite.png';
   width: 24px;
   height: 24px;
   margin-right: 5px;
+}
+```
+### Работа с адаптивом
+Работа с адаптивом осуществляется с помощью библиотеки [rupture](https://jescalan.github.io/rupture/).
+По-умолчанию настройки в проекте:
+```stylus 
+rupture.enable-em-breakpoints = true
+base-font-size = 14px
+```
+Пример: 
+```stylus
+.header
+    &__button
+        font-size 24px 
+        +below(750px)
+            font-size 16px
+
+```
+
+Полученный `css` :
+```css
+.header__button {
+    font-size: 24px;
+}
+@media only screen and (max-width: 71.875em) {
+    .header__button {
+        font-size: 16px;
+    }
 }
 ```
 
